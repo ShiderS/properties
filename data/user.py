@@ -23,6 +23,9 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
     linked_to = sqlalchemy.Column(sqlalchemy.Integer,
                                   sqlalchemy.ForeignKey("depts.id"),
                                   nullable=True)
+    linked_hr = sqlalchemy.Column(sqlalchemy.Integer,
+                                  sqlalchemy.ForeignKey("users.id"),
+                                  nullable=True)
 
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)
