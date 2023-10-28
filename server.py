@@ -3,6 +3,7 @@ from flask import Flask, request, render_template, make_response, session, redir
 # from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 # from flask_wtf import FlaskForm
 from jinja2 import FileSystemLoader, Environment
+from data import db_session
 
 
 app = Flask(__name__, template_folder="templates")
@@ -19,4 +20,6 @@ def index():
 
 
 if __name__ == "__main__":
+    db_session.global_init("db/db.db")
+    app.run()
     app.run(port=8080, host="127.0.0.1")
