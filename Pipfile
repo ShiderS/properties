@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "~=2.2.3"
+werkzeug = "~=2.2.3"
+flask-login = "~=0.6.2"
+flask-wtf = "~=1.1.1"
+requests = "*"
+sqlalchemy = "*"
+wtforms = "~=3.0.1"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
+python_full_version = "3.11.0"
