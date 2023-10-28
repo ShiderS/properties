@@ -2,6 +2,7 @@ from flask import Flask
 from flask_login import LoginManager
 from jinja2 import FileSystemLoader, Environment
 
+
 app = Flask(__name__, template_folder="templates")
 app.config["SECRET_KEY"] = 'secret_key'
 login_manager = LoginManager()

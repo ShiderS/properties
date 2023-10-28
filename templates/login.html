@@ -5,7 +5,7 @@
   <title>Окно входа</title>
   	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
 </head>
 <body>
 <div class="align">
@@ -20,18 +20,24 @@
 				<form>
 					<div class="inputs">
 						<div class="input">
-							<input placeholder="Имя" type="text">
+							{{ form.mail.label }}<br>
+            {{ form.mail(class="form-control", type="mail") }}<br>
 						</div>
 						<div class="input">
-							<input placeholder="Пароль" type="password">
+							{{ form.password.label }}<br>
+            {{ form.password(class="form-control", type="password") }}<br>
 						</div>
 					</div>
 					<div class="hz"></div>
 					<div class="hz"></div>
-					<div class="hz"></div>
-					<button class="btn"><span>Войти</span></button>
+					<div class="input">
+							{{ message }}
+					</div>
+
+					<button class="btn">{{ form.submit(type="submit", class="btn btn-primary") }}</button>
 				</form>
 			</div>
 		</div>
+	</div>
 </body>
 </html>
