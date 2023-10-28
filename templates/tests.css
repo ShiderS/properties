@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 .logo {
-    width: 160px;
-    height: 90px;
+    width: 10%;
 }
 
 .header {
-    max-width: 1757px;
+    width: 90%;
     height: 105px;
     justify-content: space-between;
     display: flex;
-    padding: 40px 107px 0 56px;
+    padding: 20px 107px 0 56px;
+    align-items: center;
 }
 
 .user_name {
@@ -23,22 +23,20 @@
 }
 
 .user_icon {
-    width: 30px;
-    height: 30px;
+    width: 10%;
 }
 
 .login {
     justify-content: space-between;
     display: flex;
-    gap: 25px;
 }
 
 .main {
     display: flex;
     align-items: center;
     flex-direction: column;
-    max-width: 1354px;
-    max-height: 829px;
+    width: 100%;
+    max-height: 80%;
 }
 
 .title {
@@ -108,18 +106,22 @@ input {
     height: 50px;
     font-size: 20px;
     font-weight: 700;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 button:hover {
     background: #094298;
     color: #fff;
+    transition: 0.3s;
 }
 
 .input {
     width: 200px;
     height: 20px;
     border-radius: 8px;
-	padding: 16px 18px 16px 51px;
+	padding: 16px 18px 16px 30px;
 	color: #403866;
     font-size: 20px;
 }
