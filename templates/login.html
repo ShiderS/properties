@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Окно входа</title>
+  	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+<div class="align">
+
+		<div class="card">
+			<div class="head">
+				<div></div>
+				<a id="login" class="selected" href="#">Вход</a>
+				<div></div>
+			</div>
+			<div class="tabs">
+				<form>
+					<div class="inputs">
+						<div class="input">
+							{{ form.mail.label }}<br>
+            {{ form.mail(class="form-control", type="mail") }}<br>
+						</div>
+						<div class="input">
+							{{ form.password.label }}<br>
+            {{ form.password(class="form-control", type="password") }}<br>
+						</div>
+					</div>
+					<div class="hz"></div>
+					<div class="hz"></div>
+					<div class="input">
+							{{ message }}
+					</div>
+
+					<button class="btn">{{ form.submit(type="submit", class="btn btn-primary") }}</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

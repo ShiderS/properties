@@ -24,14 +24,14 @@ def register():
                                    message="Такой пользователь уже есть")
         user = User(
             login=form.login.data,
-            email=form.email.data,
+            mail=form.email.data,
             full_name=form.second_name.data + form.name.data + form.patronymic.data
         )
         user.set_password(form.password.data)
         db_sess.add(user)
         db_sess.commit()
         return redirect('/login')
-    return render_template('register.html', form=form)
+    return render_template('register.html', message="Неправильный логин или пароль", form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -43,7 +43,7 @@ def login():
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
             return redirect("/")
-        return render_template('login.html',
+        return render_template('index.html',
                                message="Неправильный логин или пароль",
                                form=form)
     return render_template('login.html', form=form)
