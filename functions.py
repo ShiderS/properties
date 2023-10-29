@@ -25,7 +25,7 @@ def register():
             return render_template('signup.html', title='Регистрация',
                                    form=form,
                                    message="Такой пользователь уже есть")
-        full_name = form.second_name.data + form.name.data + form.patronymic.data
+        full_name = form.second_name.data + " " + form.name.data + " " + form.patronymic.data
         user = User(
             login=form.login.data,
             mail=form.mail.data,
