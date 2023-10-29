@@ -1,26 +1,26 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
 }
 
 .user-name {
-  font-family: "Montserrat", sans-serif;
-  margin-bottom: 15px;
-  font-size: 28px;
-  color: #094298;
-  text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 15px;
+    font-size: 28px;
+    color: #094298;
+    text-decoration: none;
 }
 .exit-logo {
-  width:15%;
-  margin-right: 28px;
-  margin-top: 4px;
+    width:15%;
+    margin-right: 28px;
+    margin-top: 4px;
 }
 
 .user {
@@ -40,108 +40,104 @@ header {
 }
 
 .logo {
-  width:80%;
+    width:80%;
 }
 
 .title {
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  color: #094298;
-  margin-bottom: 15px;
-  text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    color: #094298;
+    margin-bottom: 15px;
+    text-decoration: none;
 }
 
 .title:hover {
-  border-bottom: 5px solid #094298;
-  transition: 0.2s;
+    border-bottom: 5px solid #094298;
+    transition: 0.2s;
 }
 
 .button {
-  font-family: "Montserrat", sans-serif;
-  display: flex;
-  background: #fff;
-  color: #094298;
-  border: 3px solid #094298;
-  border-radius: 10px;
-  width: 200px;
-  height: 50px;
-  font-size: 20px;
-  font-weight: 700;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  margin-bottom: 10px;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    background: #fff;
+    color: #094298;
+    border: 3px solid #094298;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 10px;
 }
 
 .button:hover {
-  background: #094298;
-  color: #fff;
-  transition: 0.2s;
+    background: #094298;
+    color: #fff;
+    transition: 0.2s;
 }
 
 ::-webkit-scrollbar {
-  width: 0;
+    width: 0;
+    height: 0;
 }
 
-.teaching {
-  display: table;
-  border-collapse: separate;
-  border-spacing: 15px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%)
+.question {
+    font-family: "Montserrat", sans-serif;
+    color: #094298;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
-h1 {
-  font-size: 32px;
-  color: #094298;
-  font-weight: bold;
+.h2main {
+    font-family: "Montserrat", sans-serif;
+    color: #094298;
+    margin-left: 30px;
+    font-size: 25px;
+    margin-top: 10px;
 }
 
-h2 {
-  font-size: 26px;
-  color: #094298;
-  font-weight: bold;
-}
+.answer {
+    font-family: "Montserrat", sans-serif;
+    color: #000000;
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 
-a {
-  font-size: 20px;
-  color: #094298;
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #094298;
-  color: #ffffff;
-  padding: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #094298;
+    color: #ffffff;
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
 }
 
-
 .footer-links {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer-link {
-  font-family: "Montserrat", sans-serif;
-  font-size: 20px;
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  margin: 0 150px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin: 0 150px;
 }
 
 .footer-link:hover {
-  color: #f7f7f7;
-}
+    color: #f7f7f7;

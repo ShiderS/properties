@@ -94,12 +94,14 @@ header {
 }
 
 h2 {
+  font-family: "Montserrat", sans-serif;
   font-size: 28px;
   color: #094298;
   font-weight: bold;
 }
 
 a {
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   color: #094298;
 }

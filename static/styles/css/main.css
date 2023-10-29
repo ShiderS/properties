@@ -10,6 +10,19 @@ header {
   padding: 10px;
 }
 
+.tabs {
+	height: calc(100% - 72px);
+	display: flex;
+}
+
+.input {
+	position: relative;
+	margin-bottom: 10px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
 .user-name {
     font-family: "Montserrat", sans-serif;
     margin-bottom: 15px;

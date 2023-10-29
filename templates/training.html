@@ -1,37 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="font/montsserat" rel="stylesheet">
-    <link rel="stylesheet" href="templates/training.css">
+    <link href="{{ url_for('static',filename='styles/font/montserrat') }}" rel="stylesheet">
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/training.css') }}">
     <title>Моё обучение</title>
 </head>
 <body>
-    <header>
-        <a href="#"><img src="img/logo.svg" alt="logo" class="logo"></a>
-        <a href="#" class="title"><h1>Возможности</h1></a>
-        <a href="#" class="title"><h1>Тарифы</h1></a>
-        <a href="#" class="title"><h1>Внедрение</h1></a>
-        <a href="#" class="title"><h1>Отзывы</h1></a>
-        <a href="#" class="title"><h1>Поддержка</h1></a>
-        <button class="button">Вход</button>
-    </header>
+    {% include "header2.html" %}
     <div class="teaching">
         <b>
             <h2>Блоки доступные для обучения</h2>
-            <a class="text">- Промышленная безопасность 
-                <br>- Охрана труда 
-                <br>- Пожарная безопасность 
-                <br>- Первая помощь на производстве 
-                <br>- Подготовка деталей под сварку 
-                <br>- Сварочные работы
-            </a>
+            {% for i in tests %}
+            <br>
+                <a href="/portal/{{ portal }}/{{ i.id }}/1" class="test">{{ i.titles }}</a>
+            {% endfor %}
         </b>
     </div>
-    <img src="img/kub4.svg" alt="куб4" class="kub4">
-    <img src="img/kub5.svg" alt="куб5" class="kub5">
+    <img src="/./././static/imgs/kub4.svg" alt="куб4" class="kub4">
+    <img src="/././static/imgs/kub5.svg" alt="куб5" class="kub5">
 
     <footer>
-        <a href="#"><img src="img/logo_2.svg" alt="logo" class="logo"></a>
+        <a href="#"><img src="/./././static/imgs/logo_2.svg" alt="logo" class="logo"></a>
         <div class="footer-links">
             <a href="#" class="footer-link">Политика конфиденциальности</a>
             <a href="#" class="footer-link">Обратный звонок</a>

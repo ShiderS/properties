@@ -1,14 +1,17 @@
 import flask_login
 import sqlalchemy
+from fernet import Fernet
 from flask_login import current_user, login_required, logout_user, login_user
-from flask import render_template, redirect, request
+from flask import render_template, redirect, request, url_for
 from data import db_session
 from data.portal import Portal
 from data.question import Question
 from data.test import Test
 from forms.new_question_form import NewQuestForm
 from data.portal_right import PortalRight
+from data.mail_check import send_mail
 from forms.new_test_form import NewTestForm
+from forms.verifform import VerifForm
 
 from init import *
 from forms.user import *
@@ -19,10 +22,19 @@ from data.user import User
 from data.review import *
 from data.portal import *
 
+key = Fernet.generate_key()
+# Instance the Fernet class with the key
+fernet = Fernet(key)
 
-def access_valid(portal, test=None, quest=None):
+
+def access_valid(portal, test=None, quest=None, type=[0, 1, 2]):
     db_sess = db_session.create_session()
-    if (db_sess.query(Portal).filter(Portal.tag == portal).first() and True):
+    pid = db_sess.query(Portal).filter(Portal.tag == portal).first().id
+    print(pid)
+    print(flask_login.current_user.id)
+    if (db_sess.query(Portal).filter(Portal.tag == portal).first() and
+        db_sess.query(PortalRight).filter(PortalRight.id_user == flask_login.current_user.id,
+                                          PortalRight.id_portal == pid).first(), PortalRight.type in type):
         #print(1)
         if (not test):
             return True
@@ -50,17 +62,40 @@ def register():
             return render_template('signup.html', title='Регистрация',
                                    form=form,
                                    message="Такой пользователь уже есть")
-        full_name = form.second_name.data + " " + form.name.data + " " + form.patronymic.data
-        user = User(
-            login=form.login.data,
-            mail=form.mail.data,
-            full_name=full_name
-        )
-        user.set_password(form.password.data)
-        db_sess.add(user)
-        db_sess.commit()
-        return redirect('/login')
+        mail_code = send_mail("proftestium56@gmail.com", "lhnu gcsw jpyr tmhc", form.mail.data)
+        if len(mail_code) == 6:
+            full_name = form.second_name.data + form.name.data + form.patronymic.data
+            user_data = f'{form.login.data}+{form.mail.data}+{full_name}+{form.password.data}+{mail_code}'
+            encMessage = fernet.encrypt(user_data.encode())
+            return redirect(url_for("mail_verification", data=encMessage))
+        #return redirect('/mail_verification')
     return render_template('signup.html', message="Неправильный логин или пароль", form=form)
+
+
+@app.route('/mail_verification<data>', methods=['GET', 'POST'])
+def mail_verification(data):
+    form = VerifForm(meta={'csrf':False})
+    if form.validate_on_submit():
+        data = fernet.decrypt(data.encode()).decode()
+        data = data.split('+')
+        if form.code.data == data[4]:
+            db_sess = db_session.create_session()
+            user = User(
+                login=data[0],
+                mail=data[1],
+                full_name=data[2]
+            )
+            user.set_password(data[3])
+            db_sess.add(user)
+            db_sess.commit()
+            return redirect('/login')
+        return render_template('mail_verification.html', title='Подтверждение почты',
+                               form=form,
+                               message="Неверный код")
+    return render_template('mail_verification.html', message="Неправильный код", form=form)
+
+
+
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -96,7 +131,7 @@ def logout():
 def new_test(portal):
     form = NewTestForm(meta={'csrf': False})
     db_sess = db_session.create_session()
-    if (access_valid(portal)):
+    if (access_valid(portal, type=[0,1])):
         if(form.validate_on_submit()):
             test = Test(
                 titles=form.title.data,
@@ -133,6 +168,8 @@ def new_question(portal, tid, qid):
             return redirect(f"/portal/{adr_req[-4]}/{tid}/new_question/{qid+1}")
     return render_template('new_question.html', title="Новый тест",
                            portal=portal, tid=tid, qid=qid, form=form)
+
+
 @app.route('/add_review', methods=['GET', 'POST'])
 @login_required
 def add_review():

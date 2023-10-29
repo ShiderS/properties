@@ -47,7 +47,7 @@
 
 input {
     margin: 0.4rem;
-    margin-top: 20px;
+    margin-top: 0px;
     width: 15px;
     height: 15px;
 }
@@ -59,12 +59,12 @@ input {
 }
 
 .buttons {
-    margin-top: 50px;
-    margin-bottom: 100px;
+    margin-top: 0px;
+    margin-bottom: 200px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
 }
 
 .button {

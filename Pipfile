@@ -12,6 +12,7 @@ requests = "*"
 sqlalchemy = "*"
 wtforms = "~=3.0.1"
 sqlalchemy-serializer = "*"
+fernet = "*"
 
 [dev-packages]
 
