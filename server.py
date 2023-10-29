@@ -11,18 +11,13 @@ from functions import *
 
 
 @app.route("/")
+@app.route('/possibilities')
 def index():
     return render_template("index.html", title='ПрофТестиум')
 
-
-@app.route('/possibilities')
-def possibilities():
-    return render_template('possibilities.html', title='Возможности')
-
-
 @app.route('/rates')
 def rates():
-    return render_template('rates.html', title='Тарифы')
+    return render_template("tarifs.html", title='Тарифы')
 
 
 @app.route('/implementation')
