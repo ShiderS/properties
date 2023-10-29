@@ -59,7 +59,7 @@ def faq():
 
 @app.route('/confidential')
 def confidential():
-    return render_template('confidential.html', title='Помощь')
+    return render_template('confidential.html', title='Политика конфиденциальности')
 
 @app.route('/call')
 def call():
