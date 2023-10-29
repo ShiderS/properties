@@ -1,7 +1,9 @@
+import flask_login
 import sqlalchemy
 from flask_login import current_user, login_required, logout_user, login_user
 from flask import render_template, redirect, request
 from data import db_session
+from data.portal_right import PortalRight
 from forms.new_test_form import NewTestForm
 
 from init import *
@@ -117,6 +119,18 @@ def add_portal():
                 )
                 portal.set_inn(form.inn.data)
                 db_sess.add(portal)
+
+
+                portal.set_inn(form.inn.data)
+                db_sess.add(portal)
+                db_sess.commit()
+
+                portalr = PortalRight(
+                    id_user=flask_login.current_user.id,
+                    id_portal=portal.id,
+                    type=0
+                )
+                db_sess.add(portalr)
                 db_sess.commit()
                 return redirect('/')
     return render_template('add_portal.html', form=form)

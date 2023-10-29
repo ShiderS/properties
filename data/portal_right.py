@@ -21,3 +21,4 @@ class PortalRight(SqlAlchemyBase, SerializerMixin):
 
     type = sqlalchemy.Column(sqlalchemy.String,
                              nullable=False)
+    # type 0 - администратор компании, 1 - HR-менеджер, 2 - обычный рабочий
