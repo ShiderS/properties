@@ -10,6 +10,35 @@ header {
   padding: 10px;
 }
 
+.user-name {
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 15px;
+    font-size: 28px;
+    color: #094298;
+    text-decoration: none;
+}
+.exit-logo {
+  width:15%;
+  margin-right: 28px;
+  margin-top: 4px;
+}
+
+.user {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    gap: 13px;
+}
+
+.btn-login {
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 13px;
+    margin-right: 25px;
+    font-size: 28px;
+    color: #094298;
+    text-decoration: none;
+}
+
 .logo {
   width:80%;
 }
