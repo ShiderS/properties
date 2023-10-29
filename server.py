@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, make_response, session, redirect, url_for
-from data import db_session
+from data.portal import Portal
+from data.question import Question
 from data.user import User
 
 from forms.loginform import LoginForm
@@ -34,12 +35,16 @@ def support():
     return render_template('support.html', title='Поддержка')
 
 
-@app.route('/portal/<string:portal>/<int:test>/<int:quest>', methods=['GET'])
+@app.route('/portal/<string:portal>/<int:test>/<int:quest>', methods=['GET', 'POST'])
 def test(portal, test, quest):
-    form = TestForm
+    form = TestForm()
     db_sess = db_session.create_session()
-
-    return render_template('tests.html', title='Отзывы', portal=portal, test=test, quest=quest, form=form)
+    if(db_sess.query(Portal).filter(Portal.tag == portal).first()):
+        if(db_sess.query(Question).filter(Question.in_test_id == quest and Portal.linked_to == test).first()):
+            qtext = db_sess.query(Question).filter(Question.in_test_id == quest and Portal.linked_to == test).first()
+            return render_template('tests.html', title='Отзывы', portal=portal,
+                                   test=test, quest=quest, form=form, qtext=qtext.text)
+    return redirect("/")
 
 
 @app.route('/back', methods=['GET', 'POST'])
@@ -47,9 +52,6 @@ def q_back_page():
     adr_req = [i for i in request.referrer.split("/")][-4:]
     adr_req[-1] = str(int(adr_req[-1]) - 1)
     back = "/" + "/".join(adr_req)
-    # print(back)
-    # print(request.method)
-    # redirect(location=back)
     return redirect(location=back)
 
 
@@ -58,8 +60,6 @@ def q_forward_page():
     adr_req = [i for i in request.referrer.split("/")][-4:]
     adr_req[-1] = str(int(adr_req[-1]) + 1)
     forward = "/" + "/".join(adr_req)
-    # print(forward)
-    # print(request.method)
     return redirect(location=forward)
 
 

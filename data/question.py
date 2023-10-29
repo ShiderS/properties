@@ -9,6 +9,7 @@ class Question(SqlAlchemyBase, SerializerMixin):
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
                            primary_key=True, autoincrement=True)
+    in_test_id = linked_to = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
     text = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     linked_to = sqlalchemy.Column(sqlalchemy.Integer,
                                   sqlalchemy.ForeignKey("tests.id"),
