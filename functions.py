@@ -1,4 +1,5 @@
 import sqlalchemy
+from fernet import Fernet
 from flask_login import current_user, login_required, logout_user, login_user
 from flask import render_template, redirect, request, url_for
 from data import db_session
@@ -12,6 +13,10 @@ from forms.loginform import *
 from forms.add_review import *
 from data.user import User
 from data.review import *
+
+key = Fernet.generate_key()
+# Instance the Fernet class with the key
+fernet = Fernet(key)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -29,8 +34,9 @@ def register():
                                    message="Такой пользователь уже есть")
         full_name = form.second_name.data + form.name.data + form.patronymic.data
         user_data = f'{form.login.data}+{form.mail.data}+{full_name}+{form.password.data}'
+        encMessage = fernet.encrypt(user_data.encode())
         send_mail("proftestium56@gmail.com", "lhnu gcsw jpyr tmhc", form.mail.data)
-        return redirect(url_for("mail_verification", data=user_data))
+        return redirect(url_for("mail_verification", data=encMessage))
         #return redirect('/mail_verification')
     return render_template('signup.html', message="Неправильный логин или пароль", form=form)
 
@@ -39,6 +45,7 @@ def register():
 def mail_verification(data):
     form = VerifForm(meta={'csrf':False})
     if form.validate_on_submit():
+        data = fernet.decrypt(data.encode()).decode()
         data = data.split('+')
         if form.code.data == str(mail_codes[data[1]]):
             db_sess = db_session.create_session()
