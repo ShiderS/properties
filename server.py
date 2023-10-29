@@ -26,7 +26,7 @@ def reviews():
     db_sess = db_session.create_session()
     reviews = db_sess.query(Review).all()
     form = FormAddReview()
-    return render_template('reviews.html', title='Отзывы', reviews=reviews, form=form)
+    return render_template('reviews.html', title='Отзывы', reviews=reviews, db=db_sess, user=User, form=form)
 
 @app.route('/support')
 def support():
