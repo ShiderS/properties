@@ -24,19 +24,19 @@ header {
 }
 
 .user {
-    width: 300px;
-    display: flex;
-    justify-content: space-around;
-    gap: 13px;
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+  gap: 13px;
 }
 
 .btn-login {
-    font-family: "Montserrat", sans-serif;
-    margin-bottom: 13px;
-    margin-right: 25px;
-    font-size: 28px;
-    color: #094298;
-    text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 13px;
+  margin-right: 25px;
+  font-size: 28px;
+  color: #094298;
+  text-decoration: none;
 }
 
 .logo {
@@ -78,12 +78,11 @@ header {
   color: #fff;
   transition: 0.2s;
 }
-
 ::-webkit-scrollbar {
   width: 0;
 }
 
-.teaching {
+.teaching{
   display: table;
   border-collapse: separate;
   border-spacing: 15px;
@@ -94,14 +93,8 @@ header {
   transform: translate(-50%, -50%)
 }
 
-h1 {
-  font-size: 32px;
-  color: #094298;
-  font-weight: bold;
-}
-
 h2 {
-  font-size: 26px;
+  font-size: 28px;
   color: #094298;
   font-weight: bold;
 }

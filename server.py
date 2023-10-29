@@ -33,7 +33,11 @@ def support():
 
 @app.route('/faq')
 def faq():
-    return render_template('FAQ.html', title='Политика конфиденциальности')
+    return render_template('FAQ.html', title='Помощь')
+
+@app.route('/confidential')
+def confidential():
+    return render_template('confidential.html', title='Помощь')
 
 @app.route('/call')
 def call():
