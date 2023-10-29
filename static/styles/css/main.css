@@ -17,6 +17,7 @@ header {
     color: #094298;
     text-decoration: none;
 }
+
 .exit-logo {
   width:15%;
   margin-right: 28px;
@@ -32,8 +33,8 @@ header {
 
 .btn-login {
     font-family: "Montserrat", sans-serif;
-    margin-bottom: 13px;
     margin-right: 25px;
+    margin-bottom: 17px;
     font-size: 28px;
     color: #094298;
     text-decoration: none;
