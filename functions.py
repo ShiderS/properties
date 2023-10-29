@@ -14,7 +14,7 @@ from data.review import *
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegisterForm()
+    form = RegisterForm(meta={'csrf':False})
     if form.validate_on_submit():
         if form.password.data != form.password_again.data:
             return render_template('signup.html', title='Регистрация',
@@ -40,8 +40,9 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm()
+    form = LoginForm(meta={'csrf':False})
     if form.validate_on_submit():
+        print(1)
         db_sess = db_session.create_session()
         user = db_sess.query(User).filter(User.mail == form.mail.data).first()
         if user and user.check_password(form.password.data):
