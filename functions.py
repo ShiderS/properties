@@ -41,6 +41,11 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm(meta={'csrf':False})
+    print(form.submit.validate(form))
+    print(form.mail.validate(form))
+    print(form.password.validate(form))
+    print(form.mail)
+    print(form.password)
     if form.validate_on_submit():
         print(1)
         db_sess = db_session.create_session()

@@ -1,3 +1,5 @@
+import flask_login
+
 from init import *
 from functions import *
 from forms.testform import *
