@@ -4,12 +4,11 @@ from fernet import Fernet
 from flask_login import current_user, login_required, logout_user, login_user
 from flask import render_template, redirect, request, url_for
 from data import db_session
-from data.portal import Portal
+from data.mail_check import send_mail
+from data.portal_right import PortalRight
 from data.question import Question
 from data.test import Test
 from forms.new_question_form import NewQuestForm
-from data.portal_right import PortalRight
-from data.mail_check import send_mail
 from forms.new_test_form import NewTestForm
 from forms.verifform import VerifForm
 
@@ -25,7 +24,6 @@ from data.portal import *
 key = Fernet.generate_key()
 # Instance the Fernet class with the key
 fernet = Fernet(key)
-
 
 def access_valid(portal, test=None, quest=None, type=[0, 1, 2]):
     db_sess = db_session.create_session()
@@ -50,7 +48,7 @@ def access_valid(portal, test=None, quest=None, type=[0, 1, 2]):
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegisterForm(meta={'csrf': False})
+    form = RegisterForm(meta={'csrf':False})
     if form.validate_on_submit():
         if form.password.data != form.password_again.data:
             return render_template('signup.html', title='Регистрация',
@@ -170,6 +168,7 @@ def new_question(portal, tid, qid):
                            portal=portal, tid=tid, qid=qid, form=form)
 
 
+
 @app.route('/add_review', methods=['GET', 'POST'])
 @login_required
 def add_review():
@@ -210,18 +209,6 @@ def add_portal():
                 )
                 portal.set_inn(form.inn.data)
                 db_sess.add(portal)
-
-
-                portal.set_inn(form.inn.data)
-                db_sess.add(portal)
-                db_sess.commit()
-
-                portalr = PortalRight(
-                    id_user=flask_login.current_user.id,
-                    id_portal=portal.id,
-                    type=0
-                )
-                db_sess.add(portalr)
                 db_sess.commit()
                 return redirect('/')
     return render_template('add_portal.html', form=form)

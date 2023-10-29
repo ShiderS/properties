@@ -88,21 +88,6 @@ def test(portal, test, quest):
                                test=test, quest=quest, form=form, qtext=qtext.text)
 
 
-@app.route('/back', methods=['GET', 'POST'])
-def q_back_page():
-    adr_req = [i for i in request.referrer.split("/")][-4:]
-    adr_req[-1] = str(int(adr_req[-1]) - 1)
-    back = "/" + "/".join(adr_req)
-    return redirect(location=back)
-
-
-@app.route('/forward', methods=['GET', 'POST'])
-def q_forward_page():
-    adr_req = [i for i in request.referrer.split("/")][-4:]
-    adr_req[-1] = str(int(adr_req[-1]) + 1)
-    forward = "/" + "/".join(adr_req)
-    return redirect(location=forward)
-
 
 if __name__ == "__main__":
     db_session.global_init("db/db.db")

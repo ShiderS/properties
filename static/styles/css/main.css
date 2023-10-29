@@ -10,19 +10,6 @@ header {
   padding: 10px;
 }
 
-.tabs {
-	height: calc(100% - 72px);
-	display: flex;
-}
-
-.input {
-	position: relative;
-	margin-bottom: 10px;
-	width: 100%;
-	display: flex;
-	align-items: center;
-}
-
 .user-name {
     font-family: "Montserrat", sans-serif;
     margin-bottom: 15px;
@@ -30,6 +17,7 @@ header {
     color: #094298;
     text-decoration: none;
 }
+
 .exit-logo {
   width:15%;
   margin-right: 28px;
@@ -45,8 +33,8 @@ header {
 
 .btn-login {
     font-family: "Montserrat", sans-serif;
-    margin-bottom: 13px;
     margin-right: 25px;
+    margin-bottom: 17px;
     font-size: 28px;
     color: #094298;
     text-decoration: none;

@@ -3,44 +3,23 @@
   padding: 0;
 }
 
+
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
 }
-
-.user-name {
-  font-family: "Montserrat", sans-serif;
-  margin-bottom: 15px;
-  font-size: 28px;
-  color: #094298;
-  text-decoration: none;
-}
-.exit-logo {
-  width:15%;
-  margin-right: 28px;
-  margin-top: 4px;
-}
-
-.user {
-  width: 300px;
-  display: flex;
-  justify-content: space-around;
-  gap: 13px;
-}
-
-.btn-login {
-  font-family: "Montserrat", sans-serif;
-  margin-bottom: 13px;
-  margin-right: 25px;
-  font-size: 28px;
-  color: #094298;
-  text-decoration: none;
+.input {
+	position: relative;
+	margin-bottom: 10px;
+	width: 100%;
+	display: flex;
+	align-items: center;
 }
 
 .logo {
-  width:80%;
+  width: 100%;
 }
 
 .title {
@@ -52,56 +31,43 @@ header {
 }
 
 .title:hover {
-  border-bottom: 5px solid #094298;
-  transition: 0.2s;
+  border-bottom: 2px solid #094298;
+  transition: 0.3s;
 }
 
 .button {
-  font-family: "Montserrat", sans-serif;
-  display: flex;
   background: #fff;
   color: #094298;
-  border: 3px solid #094298;
+  border: 2px solid #094298;
   border-radius: 10px;
   width: 200px;
   height: 50px;
   font-size: 20px;
   font-weight: 700;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  margin-bottom: 10px;
 }
 
-.button:hover {
+button:hover {
   background: #094298;
   color: #fff;
-  transition: 0.2s;
+  transition: 0.3s;
 }
+
 ::-webkit-scrollbar {
   width: 0;
 }
 
-.teaching{
-  display: table;
-  border-collapse: separate;
-  border-spacing: 15px;
+.kub4 {
+  width: 204px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%)
+  top: 400px;
+  left: 10px;
 }
 
-h2 {
-  font-size: 28px;
-  color: #094298;
-  font-weight: bold;
-}
-
-a {
-  font-size: 20px;
-  color: #094298;
+.kub5 {
+  width: 104px;
+  position: absolute;
+  top: 100px;
+  left: 900px;
 }
 
 footer {
@@ -118,6 +84,11 @@ footer {
   display: flex;
 }
 
+.footer-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
 
 .footer-links {
   display: flex;
@@ -128,7 +99,7 @@ footer {
 
 .footer-link {
   font-family: "Montserrat", sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -137,4 +108,23 @@ footer {
 
 .footer-link:hover {
   color: #f7f7f7;
+}
+
+.teaching {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+h2 {
+  font-size: 50px;
+  color: #094298;
+  font-weight: bold;
+  padding-top: 200px;
+}
+
+.text {
+  font-size: 30px;
+  color: #094298;
 }

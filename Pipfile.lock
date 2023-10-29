@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d4f7077d5aee8a424d811550f4d2da77163c80fbd383bbf7be78e7e13f75f132"
+            "sha256": "5ea7294cfe05e581982956f6e3b3149e999a741dc22ef8777dab60506a8e5083"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -136,13 +136,6 @@
             ],
             "markers": "platform_system == 'Windows'",
             "version": "==0.4.6"
-        },
-        "fernet": {
-            "hashes": [
-                "sha256:c50a51c997e09199695b51761bdc090ccf4129917520681e69dcfff4355325c7"
-            ],
-            "index": "pypi",
-            "version": "==1.0.1"
         },
         "flask": {
             "hashes": [
@@ -323,12 +316,6 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==2.1.3"
-        },
-        "pyaes": {
-            "hashes": [
-                "sha256:02c1b1405c38d3c370b085fb952dd8bea3fadcee6411ad99f312cc129c536d8f"
-            ],
-            "version": "==1.6.1"
         },
         "requests": {
             "hashes": [

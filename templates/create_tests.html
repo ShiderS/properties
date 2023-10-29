@@ -7,7 +7,13 @@
     <title>Создать тест</title>
 </head>
 <body>
-    {% include "header2.html" %}
+    <header class="header">
+        <a href="#"><img src="static/imgs/logo.svg" alt="logo"></a>
+        <div class="login">
+            <div class="user_name">Усенков С.Д.</div>
+            <img src="static/imgs/user_icon.svg" alt="user_icon" class="user_icon">
+        </div>
+    </header>
     <main class="main">
         <div class="inputs">
             {{ form.title.label(class="input") }}<br>

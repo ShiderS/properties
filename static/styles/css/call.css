@@ -114,12 +114,6 @@ header {
     border-width: 3px;
     margin-bottom: 65px;
     margin-right: 200px;
-    margin-left: 140px;
-    font-size: 25px;
-    padding: 5px 5px;
-    font-family: "Montserrat", sans-serif;
-    color: #094298;
-
 }
 
 input::placeholder {
@@ -147,11 +141,10 @@ input::placeholder {
     height: 50px;
     font-size: 18px;
     font-weight:bold;
-    margin-left: 15%;
+    margin-left: 16%;
     justify-content: center;
     display: flex;
     align-items: center;
-    margin-left: 240px;
 }
 
 .call:hover {

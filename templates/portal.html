@@ -2,13 +2,20 @@
 <html>
 <head>
     <link href="font/montsserat" rel="stylesheet">
-  <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/main.css') }}">
+  <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/portal.css') }}">
     <title>ProfTestium</title>
 </head>
 <body>
     {% include "header2.html" %}
 
-    {{ about }}
+    <img src="static/imgs/kub1.svg" alt="куб1" class="kub1">
+    <img src="static/imgs/kub2.svg" alt="куб2" class="kub2">
+    <img src="static/imgs/kub3.svg" alt="куб3" class="kub3">
 
+    <div class="additional-text">
+        {{ portal.title }}
+    </div>
+    <h2> {{ portal.about }} </h2>
     {% include "footer.html" %}
 </body>
+</html>

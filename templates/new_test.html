@@ -2,38 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/create_tests.css') }}">
-    <title>Тестирование</title>
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <title>Title</title>
 </head>
 <body>
-    <header class="header">
-        <a href="/"><img src="/./././static/imgs/logo.svg" alt="logo"></a>
-        <div class="login">
-            <div class="user_name">{{ current_user.login }}</div>
-            <img src="/./././static/imgs/user_icon.svg" alt="user_icon" class="user_icon">
-        </div>
-    </header>
-    <main class="main">
-            <form action="" method="post">
-        <div class="inputs">
-            {{ form.title.label(class=user_name) }}
+    <div class="input">
+        {{ form.title.label }}
         <br>
-            {{ form.title(class="input", type="string") }}
+            {{ form.title(class="form-control", type="string") }}
         <br>
-        </div>
-        <div class="buttons">
-                {{ form.submit(type="submit", class="button") }}
-        </div>
-            </form>
-    </main>
-    <footer>
-        <a href="/"><img src="/./././static/imgs/logo_2.svg" alt="Логотип" class="logo"></a>
-        <div class="footer-links">
-            <a href="#" class="footer-link">Политика конфиденциальности</a>
-            <a href="#" class="footer-link">Обратный звонок</a>
-            <a href="#" class="footer-link">Помощь</a>
-        </div>
-    </footer>
+    </div>
+
+    <
+    <div class="input">
+        <br>
+            {{ form.txt_answer(class="form-control", type="string") }}
+        <br>
+    </div>
 </body>
 </html>

@@ -5,9 +5,10 @@
   <title>Регистрация портала</title>
   	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/new_portal_login.css') }}">
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/login.css') }}">
 </head>
 <body>
+	{% include "header2.html" %}
 	<div class="align">
 		<div class="card">
 			<div class="head">
@@ -40,10 +41,11 @@
 					</div>
 
 					<!-- <button class="btn">{{ form.submit(type="submit", class="btn btn-primary") }}</button> -->
-					<p class="">{{ form.submit(type="submit", class="btn") }}</p>
+					<p class="btn">{{ form.submit(type="submit", class="btn btn-primary") }}</p>
 				</form>
 			</div>
 		</div>
 	</div>
+	{% include "footer.html" %}
 </body>
 </html>

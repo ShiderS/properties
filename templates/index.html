@@ -15,20 +15,15 @@
     <div class="additional-text">
         Совершенствуйте бизнес,<br /> совершенствуя своих<br /> сотрудников!
     </div>
-    <div class="tabs">
     <a href="/add_portal"><button class="register-button">Зарегистрировать портал</button></a>
-    <br>
-
-    {% if portals %}
+    <div class="inputs">
     {% for i in portals %}
-    <br>
-        <p class="input">
-        <a href="/portal/{{ i.tag }}"><button class="register-button">{{ i.title }}</button></a>
-            </p>
-    <br>
+
+        <div class="input">
+    <a href="/portal/{{ i.tag }}"> <button class="register-button">{{ i.title }}</button></a>
+            </div>
+</div>
     {% endfor %}
-    {% endif %}
-        </div>
     {% include "footer.html" %}
 </body>
 </html>
