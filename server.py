@@ -1,6 +1,7 @@
 import flask_login
 
-
+from data.portal import Portal
+from data.question import Question
 from init import *
 from functions import *
 from forms.testform import *
@@ -35,14 +36,15 @@ def support():
 
 @app.route('/portal/<string:portal>/<int:test>/<int:quest>', methods=['GET', 'POST'])
 def test(portal, test, quest):
-    form = TestForm()
+    form = TestForm(meta={'csrf': False})
     db_sess = db_session.create_session()
-    if(db_sess.query(Portal).filter(Portal.tag == portal).first()):
-        if(db_sess.query(Question).filter(Question.in_test_id == quest and Portal.linked_to == test).first()):
-            qtext = db_sess.query(Question).filter(Question.in_test_id == quest and Portal.linked_to == test).first()
-            return render_template('tests.html', title='Отзывы', portal=portal,
-                                   test=test, quest=quest, form=form, qtext=qtext.text)
-    return redirect("/")
+    # print(access_valid(portal, test, quest))
+    if not (access_valid(portal, test, quest)):
+        return redirect("/")
+    print(test)
+    qtext = db_sess.query(Question).filter(Question.in_test_id == quest, Question.linked_to == test).first()
+    return render_template('tests.html', title='Отзывы', portal=portal,
+                               test=test, quest=quest, form=form, qtext=qtext.text)
 
 
 @app.route('/back', methods=['GET', 'POST'])

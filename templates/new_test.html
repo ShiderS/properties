@@ -2,29 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/create_tests.css') }}">
+    <title>Тестирование</title>
 </head>
 <body>
-    <div class="input">
-        {{ form.title.label }}
+    <header class="header">
+        <a href="/"><img src="/./././static/imgs/logo.svg" alt="logo"></a>
+        <div class="login">
+            <div class="user_name">{{ current_user.login }}</div>
+            <img src="/./././static/imgs/user_icon.svg" alt="user_icon" class="user_icon">
+        </div>
+    </header>
+    <main class="main">
+            <form action="" method="post">
+        <div class="inputs">
+            {{ form.title.label(class=user_name) }}
         <br>
-            {{ form.title(class="form-control", type="string") }}
+            {{ form.title(class="input", type="string") }}
         <br>
-    </div>
-
-    <div class="input">
-        {{ form.txt_question.label }}
-        <br>
-            {{ form.txt_question(class="form-control", type="string") }}
-        <br>
-    </div>
-
-    <div class="input">
-        {{ form.txt_answer.label }}
-        <br>
-            {{ form.txt_answer(class="form-control", type="string") }}
-        <br>
-    </div>
+        </div>
+        <div class="buttons">
+                {{ form.submit(type="submit", class="button") }}
+        </div>
+            </form>
+    </main>
+    <footer>
+        <a href="/"><img src="/./././static/imgs/logo_2.svg" alt="Логотип" class="logo"></a>
+        <div class="footer-links">
+            <a href="#" class="footer-link">Политика конфиденциальности</a>
+            <a href="#" class="footer-link">Обратный звонок</a>
+            <a href="#" class="footer-link">Помощь</a>
+        </div>
+    </footer>
 </body>
 </html>
