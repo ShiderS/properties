@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="tests.css">
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/tests.css') }}">
     <title>Тестирование</title>
 </head>
 <body>
     <header class="header">
-        <img src="img/logo.svg" alt="logo" class="logo">
+        <img src="/./././static/imgs/logo.svg" alt="logo" class="logo">
         <div class="login">
             <div class="user_name">Усенков С.Д.</div>
-            <img src="img/user_icon.svg" alt="user_icon" class="user_icon">
+            <img src="/./././static/imgs/user_icon.svg" alt="user_icon" class="user_icon">
         </div>
     </header>
     <main class="main">
-        <h1 class="title">Название теста</h1>
-        <h2 class="subtitle">1/10 вопрос</h2>
-        <div class="question">Назовите обязательные параметры скорости</div>
+        <h1 class="title">{{ qtitle }}</h1>
+        <h2 class="subtitle">{{ quest }}/{{ 10 }} вопрос</h2>
+        <div class="question">{{ qtext }}</div>
         <input placeholder="Ответ" type="text" class="input"></input>
         <div class="buttons">
-            <button class="button">Назад</button>
-            <button class="button">Дальше</button>
+            <form action="/back" method="post">
+                <button name="button" type="submit" class="button">Назад</button>
+            </form>
+            <form action="/forward" method="post">
+                <button name="button" type="submit" class="button">Дальше</button>
+            </form>
         </div>
     </main>
 </body>

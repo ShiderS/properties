@@ -2,6 +2,7 @@ import sqlalchemy
 from flask_login import current_user, login_required, logout_user, login_user
 from flask import render_template, redirect
 from data import db_session
+from forms.new_test_form import NewTestForm
 
 from init import *
 from forms.user import *
@@ -12,26 +13,32 @@ from data.user import User
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
+    print(form.validate_on_submit())
     if form.validate_on_submit():
+        print("x")
         if form.password.data != form.password_again.data:
-            return render_template('register.html', title='Регистрация',
+            print(1)
+            return render_template('signup.html', title='Регистрация',
                                    form=form,
                                    message="Пароли не совпадают")
         db_sess = db_session.create_session()
         if db_sess.query(User).filter(User.mail == form.mail.data).first():
-            return render_template('register.html', title='Регистрация',
+            print(2)
+            return render_template('signup.html', title='Регистрация',
                                    form=form,
                                    message="Такой пользователь уже есть")
         user = User(
             login=form.login.data,
-            mail=form.email.data,
+            mail=form.mail.data,
             full_name=form.second_name.data + form.name.data + form.patronymic.data
         )
         user.set_password(form.password.data)
         db_sess.add(user)
         db_sess.commit()
+        print(3)
         return redirect('/login')
-    return render_template('register.html', message="Неправильный логин или пароль", form=form)
+    print(4)
+    return render_template('signup.html', message="Неправильный логин или пароль", form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -60,3 +67,11 @@ def load_user(user_id):
 def logout():
     logout_user()
     return redirect("/")
+
+
+@app.route('/new_test', methods=['GET', 'POST'])
+def new_test():
+    form = NewTestForm()
+    db_sess = db_session.create_session()
+    return render_template('new_test.html', form=form)
+

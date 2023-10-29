@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 .logo {
-    width: 10%;
+    width: 100%;
 }
 
 .header {
@@ -12,6 +12,7 @@
     padding: 20px 107px 0 56px;
     align-items: center;
 }
+
 
 .user_name {
     color: #094298;
