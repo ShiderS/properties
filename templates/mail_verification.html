@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <meta charset="UTF-8">
+    <title>Подтверждение почты</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/mail_ver.css') }}">
 </head>
 <body>
-    <h1>Подтверждение почты</h1>
-    <p><span>Код отправлен на почту</span></p>
-    <form action="" method="post">
-        <div class="input">
-            {{ form.code.label }}<br>
-            {{ form.code(class="form-control", type="string") }}<br>
-        </div>
-        <a href="login" class="btn">{{ form.submit(type="submit", class="btn btn-primary") }}</a>
-    </form>
+    <div class="all">
+        <h1>Подтверждение почты</h1>
+        <p><span>Код отправлен на почту</span></p>
+        <form action="" method="post">
+            <div class="">
+                {{ form.code(class="form-control", type="string", placeholder="Код") }}<br>
+            </div>
+            <a href="login" class="">{{ form.submit(type="submit", class="btn") }}</a>
+        </form>
+    </div>
 </body>
 </html>
