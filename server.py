@@ -20,9 +20,9 @@ def rates():
     return render_template("tarifs.html", title='Тарифы')
 
 
-@app.route('/implementation')
+@app.route('/integration')
 def implementation():
-    return render_template('implementation.html', title='Внедрение')
+    return render_template('integration.html', title='Внедрение')
 
 
 @app.route('/reviews')
