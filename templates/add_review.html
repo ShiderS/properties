@@ -9,24 +9,21 @@
 </head>
 <body>
     {% include "header.html" %}
-    <a href="/add_review"><button class="button-create">Написать отзыв</button></a>
-    {% if reviews %}
-    {% for i in reviews %}
-    <div class="col-md6 border rounded aaa">
-        <h2 class="review-title">{{ db.query(user).filter(user.id == i.id_user).first().login }}</h2>
-        <div>
-            <a class="review-text">{{ i.title }}</a>
-        </div>
+    <form action="" method="post">
+    <div class="input">
+		{{ form.comment.label }}<br>
+        {{ form.comment(class="form-control", type="string") }}<br>
     </div>
-    {% endfor %}
-    {% endif %}
+    <p class="button-create">{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    </form>
+
         <footer>
-        <a href="#"><img src="img/logo_2.svg" alt="Логотип" class="logo"></a>
+        <a href=""><img src="img/logo_2.svg" alt="Логотип" class="logo"></a>
         <div class="footer-links">
             <a href="#" class="footer-link">Политика конфиденциальности</a>
             <a href="#" class="footer-link">Обратный звонок</a>
             <a href="#" class="footer-link">Помощь</a>
         </div>
-    {% include "footer.html" %}
+    </footer>
 </body>
 </html>

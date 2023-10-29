@@ -5,12 +5,15 @@ from data.question import Question
 from init import *
 from functions import *
 from forms.testform import *
+from data.portal import *
+from data.question import *
 
 
 @app.route("/")
 @app.route('/possibilities')
 def index():
     return render_template("index.html", title='ПрофТестиум')
+
 
 @app.route('/rates')
 def rates():
@@ -27,7 +30,8 @@ def reviews():
     db_sess = db_session.create_session()
     reviews = db_sess.query(Review).all()
     form = FormAddReview()
-    return render_template('reviews.html', title='Отзывы', reviews=reviews, form=form)
+    return render_template('reviews.html', title='Отзывы', reviews=reviews, db=db_sess, user=User, form=form)
+
 
 @app.route('/support')
 def support():

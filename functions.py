@@ -46,7 +46,7 @@ def register():
             return render_template('signup.html', title='Регистрация',
                                    form=form,
                                    message="Такой пользователь уже есть")
-        full_name = form.second_name.data + form.name.data + form.patronymic.data
+        full_name = form.second_name.data + " " + form.name.data + " " + form.patronymic.data
         user = User(
             login=form.login.data,
             mail=form.mail.data,
@@ -61,14 +61,8 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm(meta={'csrf': False})
-    print(form.submit.validate(form))
-    print(form.mail.validate(form))
-    print(form.password.validate(form))
-    print(form.mail)
-    print(form.password)
+    form = LoginForm(meta={'csrf':False})
     if form.validate_on_submit():
-        print(1)
         db_sess = db_session.create_session()
         user = db_sess.query(User).filter(User.mail == form.mail.data).first()
         if user and user.check_password(form.password.data):
@@ -77,7 +71,6 @@ def login():
         return render_template('index.html',
                                message="Неправильный логин или пароль",
                                form=form)
-    print(2)
     return render_template('login.html', form=form)
 
 
@@ -139,15 +132,18 @@ def new_question(portal, tid, qid):
 @app.route('/add_review', methods=['GET', 'POST'])
 @login_required
 def add_review():
-    form = FormAddReview
+    form = FormAddReview(meta={'csrf':False})
     if current_user.is_authenticated:
         db_sess = db_session.create_session()
         id = current_user.get_id()
         if form.validate_on_submit():
-            title = request.form.get('text')
-            review = Review(
-                id_user=id,
-                title=title
-            )
-            db_sess.add(review)
-            db_sess.commit()
+            title = form.comment.data
+            if title != "":
+                review = Review(
+                    id_user=id,
+                    title=title
+                )
+                db_sess.add(review)
+                db_sess.commit()
+                return redirect('/reviews')
+    return render_template('add_review.html', form=form)
