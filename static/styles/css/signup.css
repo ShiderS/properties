@@ -125,29 +125,25 @@ form {
 	color: #403866;
 }
 
+
 .btn {
-  background: #094298;
-  width: 200px;
-  height: 40px;
-  line-height: 40px;
-  padding: 0;
-  border: none;
-  border-radius: 5px;
+    background: #fafafa;
+    color: #094298;
+    border: 2px solid #094298;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
-.btn span {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  transition:0.3s;
-  font-weight: 500;
-  font-size: 18px;
-  color: #dcd6d6;
-}
-
-.btn span:hover{
-   color: #fff;
+.btn:hover{
+   color: #fafafa;
+   background: #094298;
+   transition: 0.3s;
 }
 
 .create_account {

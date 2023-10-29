@@ -14,14 +14,6 @@ html, body {
 	background: #fff;
 }
 
-.create_account {
-	color:  #373737;
-}
-
-.create_account:hover {
-	color:#094298;
-}
-
 .align {
 	height: 100%;
 	display: flex;
