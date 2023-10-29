@@ -1,15 +1,17 @@
 import flask_login
 
-
 from init import *
 from functions import *
 from forms.testform import *
+from data.portal import *
+from data.question import *
 
 
 @app.route("/")
 @app.route('/possibilities')
 def index():
     return render_template("index.html", title='ПрофТестиум')
+
 
 @app.route('/rates')
 def rates():
@@ -28,6 +30,7 @@ def reviews():
     form = FormAddReview()
     return render_template('reviews.html', title='Отзывы', reviews=reviews, db=db_sess, user=User, form=form)
 
+
 @app.route('/support')
 def support():
     return render_template('support.html', title='Поддержка')
@@ -37,8 +40,8 @@ def support():
 def test(portal, test, quest):
     form = TestForm()
     db_sess = db_session.create_session()
-    if(db_sess.query(Portal).filter(Portal.tag == portal).first()):
-        if(db_sess.query(Question).filter(Question.in_test_id == quest and Portal.linked_to == test).first()):
+    if (db_sess.query(Portal).filter(Portal.tag == portal).first()):
+        if (db_sess.query(Question).filter(Question.in_test_id == quest and Portal.linked_to == test).first()):
             qtext = db_sess.query(Question).filter(Question.in_test_id == quest and Portal.linked_to == test).first()
             return render_template('tests.html', title='Отзывы', portal=portal,
                                    test=test, quest=quest, form=form, qtext=qtext.text)
