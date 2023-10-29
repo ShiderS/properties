@@ -9,3 +9,5 @@ class Test(SqlAlchemyBase, SerializerMixin):
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
                            primary_key=True, autoincrement=True)
+
+    titles = sqlalchemy.Column(sqlalchemy.String, nullable=False)

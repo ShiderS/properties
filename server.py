@@ -1,5 +1,6 @@
 from init import *
 from functions import *
+from forms.testform import *
 
 
 @app.route("/")
