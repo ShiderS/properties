@@ -1,8 +1,10 @@
 import sqlalchemy
 from flask_login import current_user, login_required, logout_user, login_user
-from flask import render_template, redirect, request
+from flask import render_template, redirect, request, url_for
 from data import db_session
+from data.mail_check import send_mail, mail_codes
 from forms.new_test_form import NewTestForm
+from forms.verifform import VerifForm
 
 from init import *
 from forms.user import *
@@ -26,16 +28,36 @@ def register():
                                    form=form,
                                    message="Такой пользователь уже есть")
         full_name = form.second_name.data + form.name.data + form.patronymic.data
-        user = User(
-            login=form.login.data,
-            mail=form.mail.data,
-            full_name=full_name
-        )
-        user.set_password(form.password.data)
-        db_sess.add(user)
-        db_sess.commit()
-        return redirect('/login')
+        user_data = f'{form.login.data}+{form.mail.data}+{full_name}+{form.password.data}'
+        send_mail("proftestium56@gmail.com", "lhnu gcsw jpyr tmhc", form.mail.data)
+        return redirect(url_for("mail_verification", data=user_data))
+        #return redirect('/mail_verification')
     return render_template('signup.html', message="Неправильный логин или пароль", form=form)
+
+
+@app.route('/mail_verification<data>', methods=['GET', 'POST'])
+def mail_verification(data):
+    form = VerifForm(meta={'csrf':False})
+    if form.validate_on_submit():
+        data = data.split('+')
+        if form.code.data == str(mail_codes[data[1]]):
+            db_sess = db_session.create_session()
+            user = User(
+                login=data[0],
+                mail=data[1],
+                full_name=data[2]
+            )
+            user.set_password(data[3])
+            db_sess.add(user)
+            db_sess.commit()
+            return redirect('/login')
+        return render_template('mail_verification.html', title='Подтверждение почты',
+                               form=form,
+                               message="Неверный код")
+    return render_template('mail_verification.html', message="Неправильный код", form=form)
+
+
+
 
 
 @app.route('/login', methods=['GET', 'POST'])

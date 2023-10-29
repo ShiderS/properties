@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <h1>Подтверждение почты</h1>
+    <p><span>Код отправлен на почту</span></p>
+    <form action="" method="post">
+        <div class="input">
+            {{ form.code.label }}<br>
+            {{ form.code(class="form-control", type="string") }}<br>
+        </div>
+        <a href="login" class="btn">{{ form.submit(type="submit", class="btn btn-primary") }}</a>
+    </form>
+</body>
+</html>
