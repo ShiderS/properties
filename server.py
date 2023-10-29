@@ -1,11 +1,3 @@
-from flask import Flask, request, render_template, make_response, session, redirect
-from data import db_session
-from data.user import User
-
-from forms.loginform import LoginForm
-from forms.user import RegisterForm
-
-
 from init import *
 from functions import *
 
@@ -13,11 +5,6 @@ from functions import *
 @app.route("/")
 def index():
     return render_template("index.html", title='ПрофТестиум')
-
-
-@app.route('/possibilities')
-def possibilities():
-    return render_template('possibilities.html', title='Возможности')
 
 
 @app.route('/rates')
@@ -32,9 +19,9 @@ def implementation():
 
 @app.route('/reviews')
 def reviews():
+    db_sess = db_session.create_session()
+    reviews = db_sess.query(Review).all()
     return render_template('reviews.html', title='Отзывы')
-
-
 
 
 if __name__ == "__main__":

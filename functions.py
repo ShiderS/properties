@@ -1,12 +1,14 @@
 import sqlalchemy
 from flask_login import current_user, login_required, logout_user, login_user
-from flask import render_template, redirect
+from flask import render_template, redirect, request
 from data import db_session
 
 from init import *
 from forms.user import *
 from forms.loginform import *
+from forms.add_review import *
 from data.user import User
+from data.review import *
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -31,7 +33,7 @@ def register():
         db_sess.add(user)
         db_sess.commit()
         return redirect('/login')
-    return render_template('register.html', message="Неправильный логин или пароль", form=form)
+    return render_template('signup.html', message="Неправильный логин или пароль", form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -60,3 +62,20 @@ def load_user(user_id):
 def logout():
     logout_user()
     return redirect("/")
+
+
+@app.route('/add_review', methods=['GET', 'POST'])
+@login_required
+def add_review():
+    form = FormAddReview
+    if current_user.is_authenticated:
+        db_sess = db_session.create_session()
+        id = current_user.get_id()
+        if form.validate_on_submit():
+            title = request.form.get('text')
+            review = Review(
+                id_user=id,
+                title=title
+            )
+            db_sess.add(review)
+            db_sess.commit()
