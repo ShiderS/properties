@@ -17,7 +17,7 @@
 				<div></div>
 			</div>
 			<div class="tabs">
-				<form>
+				<form method="post">
 					<div class="inputs">
 						<div class="input">
 							{{ form.second_name.label }}<br>
@@ -48,7 +48,7 @@
             				{{ form.mail(class="form-control", type="mail") }}<br>
 						</div>
 					</div>
-					<div class="btn">{{ form.submit(type="submit", class="btn btn-primary") }}</div>
+					<div class="btn">{{ form.submit(type="submit", class="btn") }}</div>
 					<a href="login"><div class="create_account">Уже есть аккаунт?</div></a>
 				</form>
 			</div>

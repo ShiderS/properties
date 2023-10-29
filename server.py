@@ -27,7 +27,8 @@ def implementation():
 def reviews():
     db_sess = db_session.create_session()
     reviews = db_sess.query(Review).all()
-    return render_template('reviews.html', title='Отзывы')
+    form = FormAddReview()
+    return render_template('reviews.html', title='Отзывы', reviews=reviews, form=form)
 
 
 @app.route('/portal/<string:portal>/<int:test>/<int:quest>', methods=['GET'])

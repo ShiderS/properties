@@ -7,4 +7,4 @@ from wtforms.validators import DataRequired
 class FormAddReview(FlaskForm):
     comment = StringField('Комментарий', validators=[DataRequired()])
 
-    submit = SubmitField('Войти')
+    submit = SubmitField('Оставить отзыв')

@@ -17,18 +17,19 @@ def register():
     form = RegisterForm()
     if form.validate_on_submit():
         if form.password.data != form.password_again.data:
-            return render_template('register.html', title='Регистрация',
+            return render_template('signup.html', title='Регистрация',
                                    form=form,
                                    message="Пароли не совпадают")
         db_sess = db_session.create_session()
         if db_sess.query(User).filter(User.mail == form.mail.data).first():
-            return render_template('register.html', title='Регистрация',
+            return render_template('signup.html', title='Регистрация',
                                    form=form,
                                    message="Такой пользователь уже есть")
+        full_name = form.second_name.data + form.name.data + form.patronymic.data
         user = User(
             login=form.login.data,
             mail=form.mail.data,
-            full_name=form.second_name.data + form.name.data + form.patronymic.data
+            full_name=full_name
         )
         user.set_password(form.password.data)
         db_sess.add(user)
@@ -44,7 +45,7 @@ def login():
         db_sess = db_session.create_session()
         user = db_sess.query(User).filter(User.mail == form.mail.data).first()
         if user and user.check_password(form.password.data):
-            login_user(user, remember=form.remember_me.data)
+            login_user(user)
             return redirect("/")
         return render_template('index.html',
                                message="Неправильный логин или пароль",
@@ -70,7 +71,6 @@ def new_test():
     form = NewTestForm()
     db_sess = db_session.create_session()
     return render_template('new_test.html', form=form)
-
 
 
 @app.route('/add_review', methods=['GET', 'POST'])
