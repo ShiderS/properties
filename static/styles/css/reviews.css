@@ -10,6 +10,35 @@ header {
     padding: 10px;
 }
 
+.user-name {
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 15px;
+    font-size: 28px;
+    color: #094298;
+    text-decoration: none;
+}
+.exit-logo {
+  width:15%;
+  margin-right: 28px;
+  margin-top: 4px;
+}
+
+.user {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    gap: 13px;
+}
+
+.btn-login {
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 13px;
+    margin-right: 25px;
+    font-size: 28px;
+    color: #094298;
+    text-decoration: none;
+}
+
 .logo {
     width:80%;
 }
@@ -102,11 +131,13 @@ header {
 }
 
 ::-webkit-scrollbar {
-width: 0;
+    width: 0;
+    height: 0;
 }
 
 footer {
   position: fixed;
+  margin-top: 25px;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -152,7 +183,7 @@ footer {
     padding-left: 60px;
     padding-right: 70px;
     display: flex;
-    max-width: 900px;
+    max-width: 1000px;
 }
 
 .review-title {
@@ -162,5 +193,5 @@ footer {
     padding-left: 75px;
     padding-top: 20px;
     display: flex;
-    max-width: 900px;
+    max-width: 1000px;
 }

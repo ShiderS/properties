@@ -5,7 +5,7 @@
   <title>Регистрация</title>
   	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-	<link rel="stylesheet" href="./static/styles/css/signup.css">
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/signup.css') }}">
 </head>
 <body>
 <div class="align">
@@ -48,7 +48,7 @@
             				{{ form.mail(class="input", type="mail") }}<br>
 						</div>
 					</div>
-					<div class="btn">{{ form.submit(type="submit", class="btn") }}</div>
+					<div class="">{{ form.submit(type="submit", class="btn") }}</div>
 					<a href="login"><div class="create_account">Уже есть аккаунт?</div></a>
 				</form>
 			</div>
