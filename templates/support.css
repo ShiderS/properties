@@ -12,7 +12,7 @@
   }
   
   .logo {
-    width: 100%;
+    width:80%;
   }
   
   .title {
@@ -23,10 +23,10 @@
     text-decoration: none;
   }
   
-  .title:hover {
-    border-bottom: 2px solid #094298;
-    transition: 0.3s;
-  }
+.title:hover {
+    border-bottom: 5px solid #094298;
+    transition: 0.2s;
+}
   
   .button {
     background: #fff;
@@ -37,6 +37,8 @@
     height: 50px;
     font-size: 20px;
     font-weight: 700;
+    margin-bottom: 11px;
+    margin-right: 25px;
   }
   
   button:hover {
@@ -44,7 +46,6 @@
     color: #fff;
     transition: 0.3s;
   }
-
 
   footer {
     position: fixed;
@@ -75,7 +76,7 @@
   
 .footer-link {
     font-family: "Montserrat", sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     color: #ffffff;
     text-decoration: none;
     transition: color 0.3s ease;
