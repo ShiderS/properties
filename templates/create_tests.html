@@ -3,35 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="templates/create_tests.css">
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/create_tests.css') }}">
     <title>Создать тест</title>
 </head>
 <body>
     <header class="header">
-        <a href="#"><img src="img/logo.svg" alt="logo"></a>
+        <a href="#"><img src="static/imgs/logo.svg" alt="logo"></a>
         <div class="login">
             <div class="user_name">Усенков С.Д.</div>
-            <img src="img/user_icon.svg" alt="user_icon" class="user_icon">
+            <img src="static/imgs/user_icon.svg" alt="user_icon" class="user_icon">
         </div>
     </header>
     <main class="main">
         <div class="inputs">
-            <input placeholder="Название теста" type="text" class="input">
-            <input placeholder="Вопрос" type="text" class="input">
-            <input placeholder="Верный ответ" type="text" class="input">
+            {{ form.title.label(class="input") }}<br>
+            {{ form.title(class="input", type="string") }}<br>
+
+            {{ form.txt_question.label(class="input") }}<br>
+            {{ form.txt_question(class="input", type="string") }}<br>
+
+            {{ form.txt_answer.label(class="input") }}<br>
+            {{ form.txt_answer(class="input", type="string") }}<br>
         </div>
         <div class="buttons">
             <button class="button">Следующий вопрос</button>
             <button class="button">Создать тест</button>
         </div>
     </main>
-    <footer>
-        <a href="#"><img src="img/logo_2.svg" alt="Логотип" class="logo"></a>
-        <div class="footer-links">
-            <a href="#" class="footer-link">Политика конфиденциальности</a>
-            <a href="#" class="footer-link">Обратный звонок</a>
-            <a href="#" class="footer-link">Помощь</a>
-        </div>
-    </footer>
+    {% include "footer.html" %}
 </body>
 </html>
