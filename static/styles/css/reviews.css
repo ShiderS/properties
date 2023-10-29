@@ -105,27 +105,6 @@ header {
 width: 0;
 }
 
-.kub1 {
-    width: 404px;
-    position: absolute;
-    top: 45%;
-    left: 1%;
-}
-
-.kub2 {
-    width: 104px;
-    position: absolute;
-    top: 27%;
-    left: 22%;
-}
-
-.kub3 {
-    width: 154px;
-    position: absolute;
-    top: 47%;
-    left: 86%;
-}
-
 footer {
   position: fixed;
   bottom: 0;
@@ -173,7 +152,7 @@ footer {
     padding-left: 60px;
     padding-right: 70px;
     display: flex;
-    justify-content: center;
+    max-width: 900px;
 }
 
 .review-title {
@@ -182,4 +161,6 @@ footer {
     color: #094298;
     padding-left: 75px;
     padding-top: 20px;
+    display: flex;
+    max-width: 900px;
 }
