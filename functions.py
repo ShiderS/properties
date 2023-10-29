@@ -8,8 +8,10 @@ from init import *
 from forms.user import *
 from forms.loginform import *
 from forms.add_review import *
+from forms.portal import *
 from data.user import User
 from data.review import *
+from data.portal import *
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -21,7 +23,8 @@ def register():
                                    form=form,
                                    message="Пароли не совпадают")
         db_sess = db_session.create_session()
-        if db_sess.query(User).filter(User.mail == form.mail.data).first():
+        if db_sess.query(User).filter(User.mail == form.mail.data).first()\
+                and db_sess.query(User).filter(User.login == form.login.data).first():
             return render_template('signup.html', title='Регистрация',
                                    form=form,
                                    message="Такой пользователь уже есть")
@@ -92,3 +95,28 @@ def add_review():
                 db_sess.commit()
                 return redirect('/reviews')
     return render_template('add_review.html', form=form)
+
+
+@app.route('/add_portal', methods=['GET', 'POST'])
+@login_required
+def add_portal():
+    form = RegisterFormPortal(meta={'csrf': False})
+    if current_user.is_authenticated:
+        db_sess = db_session.create_session()
+        id = current_user.get_id()
+        if form.validate_on_submit():
+            tag = form.tag.data
+            title = form.title.data
+            about = form.about.data
+            if title != "":
+                portal = Portal(
+                    assigned_by=id,
+                    tag=tag,
+                    title=title,
+                    about=about
+                )
+                portal.set_inn(form.inn.data)
+                db_sess.add(portal)
+                db_sess.commit()
+                return redirect('/')
+    return render_template('add_portal.html', form=form)

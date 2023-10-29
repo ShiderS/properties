@@ -1,6 +1,6 @@
 <header>
-        <a href="#"><img src="static/imgs/logo.svg" alt="Логотип" class="logo"></a>
-        <a href="possibilities" class="title"><h1>Возможности</h1></a>
+        <a href="/"><img src="static/imgs/logo.svg" alt="Логотип" class="logo"></a>
+        <a href="/" class="title"><h1>Возможности</h1></a>
         <a href="rates" class="title"><h1>Тарифы</h1></a>
         <a href="integration" class="title"><h1>Внедрение</h1></a>
         <a href="reviews" class="title"><h1>Отзывы</h1></a>
@@ -9,7 +9,6 @@
         <a class="" href="/logout">{{ current_user.login }}</a>
         {% else %}
         <p>
-            <a class="btn btn-primary " href="/register">Зарегистрироваться</a>
             <a class="btn btn-success" href="/login">Войти</a>
         </p>
         {% endif %}
