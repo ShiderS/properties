@@ -14,6 +14,7 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
                            primary_key=True, autoincrement=True)
     login = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     type = sqlalchemy.Column(sqlalchemy.Integer, nullable=False, default=1)
+    # type 0 - администратор, 1 - обычный пользователь
     mail = sqlalchemy.Column(sqlalchemy.String,
                              index=True, unique=True, nullable=True)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=False)

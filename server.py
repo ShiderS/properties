@@ -37,6 +37,17 @@ def reviews():
 def support():
     return render_template('support.html', title='Поддержка')
 
+@app.route('/faq')
+def faq():
+    return render_template('FAQ.html', title='Помощь')
+
+@app.route('/confidential')
+def confidential():
+    return render_template('confidential.html', title='Помощь')
+
+@app.route('/call')
+def call():
+    return render_template('call.html', title='Обратный звонок')
 
 @app.route('/portal/<string:portal>/<int:test>/<int:quest>', methods=['GET', 'POST'])
 def test(portal, test, quest):
