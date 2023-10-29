@@ -3,30 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="templates/support.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/support.css') }}">
     <title>Техподдержка</title>
 </head>
 <body>
-    <header>
-        <a href="#"><img src="img/logo.svg" alt="logo" class="logo"></a>
-        <a href="#" class="title"><h1>Возможности</h1></a>
-        <a href="#" class="title"><h1>Тарифы</h1></a>
-        <a href="#" class="title"><h1>Внедрение</h1></a>
-        <a href="#" class="title"><h1>Отзывы</h1></a>
-        <a href="#" class="title"><h1>Поддержка</h1></a>
-        <button class="button">Вход</button>
-    </header>
+    {% include "header.html" %}
     <main class="main">
-        <h1 class="email">Столкнулись с проблемой? Появился вопрос? Вы можете написать нам на почту <a href="mailto:proftestium56@gmail.com" class="link">proftestium56@gmail.com</a></h1>
+        <h1 class="email">Столкнулись с проблемой? Появился вопрос?<br>Вы можете написать нам на почту:<br><a href="mailto:proftestium56@gmail.com" class="link">proftestium56@gmail.com</a></h1>
     </main>
-    <footer>
-        <a href="#"><img src="img/logo_2.svg" alt="logo" class="logo"></a>
-        <div class="footer-links">
-            <a href="#" class="footer-link">Политика конфиденциальности</a>
-            <a href="#" class="footer-link">Обратный звонок</a>
-            <a href="#" class="footer-link">Помощь</a>
-        </div>
-    </footer>
-    
+    {% include "footer.html" %}
 </body>
 </html>

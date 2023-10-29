@@ -29,6 +29,10 @@ def implementation():
 def reviews():
     return render_template('reviews.html', title='Отзывы')
 
+@app.route('/support')
+def support():
+    return render_template('support.html', title='Поддержка')
+
 
 @app.route('/portal/<string:portal>/<int:test>/<int:quest>', methods=['GET'])
 def test(portal, test, quest):

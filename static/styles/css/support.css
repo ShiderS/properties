@@ -1,6 +1,6 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
   }
   
   
@@ -29,20 +29,26 @@ header {
 }
   
 .button {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
   background: #fff;
   color: #094298;
-  border: 2px solid #094298;
+  border: 3px solid #094298;
   border-radius: 10px;
   width: 200px;
   height: 50px;
   font-size: 20px;
   font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 10px;
 }
 
-button:hover {
+.button:hover {
   background: #094298;
   color: #fff;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 
@@ -74,24 +80,25 @@ footer {
 }
   
 .footer-link {
-    font-family: "Montserrat", sans-serif;
-    font-size: 22px;
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    margin: 0 150px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin: 0 150px;
 }
   
 .footer-link:hover {
-    color: #f7f7f7;
+  color: #f7f7f7;
 }
 
 .email {
   text-decoration: none;
-  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
   font-weight: 700;
   color: #094298;
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 .link {
