@@ -10,37 +10,8 @@ header {
     padding: 10px;
 }
 
-.user-name {
-    font-family: "Montserrat", sans-serif;
-    margin-bottom: 15px;
-    font-size: 28px;
-    color: #094298;
-    text-decoration: none;
-}
-.exit-logo {
-  width:15%;
-  margin-right: 28px;
-  margin-top: 4px;
-}
-
-.user {
-    width: 300px;
-    display: flex;
-    justify-content: space-around;
-    gap: 13px;
-}
-
-.btn-login {
-    font-family: "Montserrat", sans-serif;
-    margin-bottom: 13px;
-    margin-right: 25px;
-    font-size: 28px;
-    color: #094298;
-    text-decoration: none;
-}
-
 .logo {
-    width:80%;
+    width: 80%;
 }
 
 .title {
@@ -52,33 +23,24 @@ header {
 }
 
 .title:hover {
-    border-bottom: 5px solid #094298;
-    transition: 0.2s;
+border-bottom: 5px solid #094298;
+transition: 0.2s;
 }
 
 .button {
-  font-family: "Montserrat", sans-serif;
-  display: flex;
-  background: #fff;
-  color: #094298;
-  border: 3px solid #094298;
-  border-radius: 10px;
-  width: 200px;
-  height: 50px;
-  font-size: 20px;
-  font-weight: 700;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  margin-bottom: 10px;
+    padding: 5px 10px;
+    border: 4px solid #094298;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #094298;
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    cursor: pointer;
+    margin-right:100px;
+    font-weight: bold;
+    margin-left: 60px;
+    margin-bottom: 10px;
 }
-
-.button:hover {
-  background: #094298;
-  color: #fff;
-  transition: 0.2s;
-}
-
 
 .button-create {
     padding: 5px 10px;
@@ -131,13 +93,32 @@ header {
 }
 
 ::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+width: 0;
+}
+
+.kub1 {
+    width: 404px;
+    position: absolute;
+    top: 45%;
+    left: 1%;
+}
+
+.kub2 {
+    width: 104px;
+    position: absolute;
+    top: 27%;
+    left: 22%;
+}
+
+.kub3 {
+    width: 154px;
+    position: absolute;
+    top: 47%;
+    left: 86%;
 }
 
 footer {
   position: fixed;
-  margin-top: 25px;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -183,7 +164,7 @@ footer {
     padding-left: 60px;
     padding-right: 70px;
     display: flex;
-    max-width: 1000px;
+    justify-content: center;
 }
 
 .review-title {
@@ -192,6 +173,4 @@ footer {
     color: #094298;
     padding-left: 75px;
     padding-top: 20px;
-    display: flex;
-    max-width: 1000px;
 }

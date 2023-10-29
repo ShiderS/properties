@@ -1,16 +1,18 @@
 <header>
-    <a href="#"><img src="static/imgs/logo.svg" alt="Логотип" class="logo"></a>
-    <h1 class="title">Возможности</h1>
-    <h1 class="title">Тарифы</h1>
-    <h1 class="title">Внедрение</h1>
-    <h1 class="title">Отзывы</h1>
-    <h1 class="title">Поддержка</h1>
-    {% if current_user.is_authenticated %}
-    <a class="navbar-brand" href="/user_profile">{{ current_user.name }}</a>
-    {% else %}
-    <p>
-        <a class="btn btn-primary " href="/register">Зарегистрироваться</a>
-        <a class="btn btn-success" href="/login">Войти</a>
-    </p>
-    {% endif %}
+        <a href="/"><img src="static/imgs/logo.svg" alt="Логотип" class="logo"></a>
+        <a href="/" class="title"><h1>Возможности</h1></a>
+        <a href="rates" class="title"><h1>Тарифы</h1></a>
+        <a href="integration" class="title"><h1>Внедрение</h1></a>
+        <a href="reviews" class="title"><h1>Отзывы</h1></a>
+        <a href="support" class="title"><h1>Поддержка</h1></a>
+        {% if current_user.is_authenticated %}
+        <div class="user">
+                <a class="user-name" href="#">{{ current_user.login }}</a>
+                <a href="/logout"><img src="static/imgs/exit.svg" alt="Выход" class="exit-logo"></a>
+        </div>
+        {% else %}
+        <p>
+            <a class="btn btn-success" href="/login">Войти</a>
+        </p>
+        {% endif %}
 </header>

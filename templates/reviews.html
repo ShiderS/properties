@@ -9,24 +9,16 @@
 </head>
 <body>
     {% include "header.html" %}
-    <a href="/add_review"><button class="button-create">Оставить отзыв</button></a>
-    {% if reviews %}
-    {% for i in reviews %}
-    <div class="col-md6 border rounded aaa">
-        <h2 class="review-title">{{i[1].name}}</h2>
-        <div>
-            <a class="review-text">{{i[0]}}</a>
-        </div>
+    <a href="/add_review"><button class="button-create">Написать отзыв</button></a>
+    <div class="review-group">
+        {% if reviews %}
+        {% for i in reviews %}
+            <h2 class="review-title">{{ db.query(user).filter(user.id == i.id_user).first().login }}</h2>
+            <a class="review-text">{{ i.title }}</a>
+        {% endfor %}
+        {% endif %}
     </div>
-    {% endfor %}
-    {% endif %}
-        <footer>
-        <a href="#"><img src="img/logo_2.svg" alt="Логотип" class="logo"></a>
-        <div class="footer-links">
-            <a href="#" class="footer-link">Политика конфиденциальности</a>
-            <a href="#" class="footer-link">Обратный звонок</a>
-            <a href="#" class="footer-link">Помощь</a>
-        </div>
-    </footer>
+    {% include "footer.html" %}
+
 </body>
 </html>

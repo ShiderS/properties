@@ -66,6 +66,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    max-width: 60%;
 }
 
 p,
@@ -86,8 +87,8 @@ label {
 input {
     margin: 0.4rem;
     margin-top: 50px;
-    width: 15px;
-    height: 15px;
+    width: 200px;
+    height: 30px;
 }
 
 .buttons {

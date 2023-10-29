@@ -5,7 +5,7 @@
   <title>Регистрация</title>
   	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-	<link rel="stylesheet" href="./static/styles/css/signup.css">
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/signup.css') }}">
 </head>
 <body>
 <div class="align">
@@ -20,35 +20,35 @@
 				<form method="post">
 					<div class="inputs">
 						<div class="input">
-							{{ form.second_name.label }}<br>
-            				{{ form.second_name(class="form-control", type="string") }}<br>
+							{{ form.second_name.label(class="input") }}<br>
+            				{{ form.second_name(class="input", type="string") }}<br>
 						</div>
 						<div class="input">
-							{{ form.name.label }}<br>
-            				{{ form.name(class="form-control", type="string") }}<br>
+							{{ form.name.label(class="input") }}<br>
+            				{{ form.name(class="input", type="string") }}<br>
 						</div>
 						<div class="input">
-							{{ form.patronymic.label }}<br>
-            				{{ form.patronymic(class="form-control", type="string") }}<br>
+							{{ form.patronymic.label(class="input") }}<br>
+            				{{ form.patronymic(class="input", type="string") }}<br>
 						</div>
 						<div class="input">
-							{{ form.login.label }}<br>
-            				{{ form.login(class="form-control", type="string") }}<br>
+							{{ form.login.label(class="input") }}<br>
+            				{{ form.login(class="input", type="string") }}<br>
 						</div>
 						<div class="input">
-							{{ form.password.label }}<br>
-            				{{ form.password(class="form-control", type="password") }}<br>
+							{{ form.password.label(class="input") }}<br>
+            				{{ form.password(class="input", type="password") }}<br>
 						</div>
 						<div class="input">
-							{{ form.password_again.label }}<br>
-            				{{ form.password_again(class="form-control", type="password") }}<br>
+							{{ form.password_again.label(class="input") }}<br>
+            				{{ form.password_again(class="input", type="password") }}<br>
 						</div>
 						<div class="input">
-							{{ form.mail.label }}<br>
-            				{{ form.mail(class="form-control", type="mail") }}<br>
+							{{ form.mail.label(class="input") }}<br>
+            				{{ form.mail(class="input", type="mail") }}<br>
 						</div>
 					</div>
-					<div class="btn">{{ form.submit(type="submit", class="btn") }}</div>
+					<div class="">{{ form.submit(type="submit", class="btn") }}</div>
 					<a href="login"><div class="create_account">Уже есть аккаунт?</div></a>
 				</form>
 			</div>

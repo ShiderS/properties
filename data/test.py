@@ -11,3 +11,8 @@ class Test(SqlAlchemyBase, SerializerMixin):
                            primary_key=True, autoincrement=True)
 
     titles = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+
+    linked_to = sqlalchemy.Column(sqlalchemy.Integer,
+                                  sqlalchemy.ForeignKey("portals.id"),
+                                  nullable=False)
+

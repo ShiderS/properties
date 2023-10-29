@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="header">
-        <img src="/./././static/imgs/logo.svg" alt="logo" class="logo">
+        <a href="/"><img src="/./././static/imgs/logo.svg" alt="logo" class="logo"></a>
         <div class="login">
             <div class="user_name">Усенков С.Д.</div>
             <img src="/./././static/imgs/user_icon.svg" alt="user_icon" class="user_icon">
@@ -18,7 +18,9 @@
         <h1 class="title">{{ qtitle }}</h1>
         <h2 class="subtitle">{{ quest }}/{{ 10 }} вопрос</h2>
         <div class="question">{{ qtext }}</div>
-        <input placeholder="Ответ" type="text" class="input"></input>
+        <div class="input">
+							{{ form.answer.label }}<br>
+            {{ form.answer(class="form-control", type="string") }}<br></div>
         <div class="buttons">
             <form action="/back" method="post">
                 <button name="button" type="submit" class="button">Назад</button>

@@ -1,26 +1,26 @@
+import flask_login
+
 from init import *
 from functions import *
 from forms.testform import *
+from data.portal import *
+from data.question import *
 
 
 @app.route("/")
+@app.route('/possibilities')
 def index():
     return render_template("index.html", title='ПрофТестиум')
 
 
-@app.route('/possibilities')
-def possibilities():
-    return render_template('possibilities.html', title='Возможности')
-
-
 @app.route('/rates')
 def rates():
-    return render_template('rates.html', title='Тарифы')
+    return render_template("tarifs.html", title='Тарифы')
 
 
-@app.route('/implementation')
+@app.route('/integration')
 def implementation():
-    return render_template('implementation.html', title='Внедрение')
+    return render_template('integration.html', title='Внедрение')
 
 
 @app.route('/reviews')
@@ -28,15 +28,35 @@ def reviews():
     db_sess = db_session.create_session()
     reviews = db_sess.query(Review).all()
     form = FormAddReview()
-    return render_template('reviews.html', title='Отзывы', reviews=reviews, form=form)
+    return render_template('reviews.html', title='Отзывы', reviews=reviews, db=db_sess, user=User, form=form)
 
 
-@app.route('/portal/<string:portal>/<int:test>/<int:quest>', methods=['GET'])
+@app.route('/support')
+def support():
+    return render_template('support.html', title='Поддержка')
+
+@app.route('/faq')
+def faq():
+    return render_template('FAQ.html', title='Помощь')
+
+@app.route('/confidential')
+def confidential():
+    return render_template('confidential.html', title='Помощь')
+
+@app.route('/call')
+def call():
+    return render_template('call.html', title='Обратный звонок')
+
+@app.route('/portal/<string:portal>/<int:test>/<int:quest>', methods=['GET', 'POST'])
 def test(portal, test, quest):
-    form = TestForm
+    form = TestForm()
     db_sess = db_session.create_session()
-
-    return render_template('tests.html', title='Отзывы', portal=portal, test=test, quest=quest, form=form)
+    if (db_sess.query(Portal).filter(Portal.tag == portal).first()):
+        if (db_sess.query(Question).filter(Question.in_test_id == quest and Portal.linked_to == test).first()):
+            qtext = db_sess.query(Question).filter(Question.in_test_id == quest and Portal.linked_to == test).first()
+            return render_template('tests.html', title='Отзывы', portal=portal,
+                                   test=test, quest=quest, form=form, qtext=qtext.text)
+    return redirect("/")
 
 
 @app.route('/back', methods=['GET', 'POST'])
@@ -44,9 +64,6 @@ def q_back_page():
     adr_req = [i for i in request.referrer.split("/")][-4:]
     adr_req[-1] = str(int(adr_req[-1]) - 1)
     back = "/" + "/".join(adr_req)
-    # print(back)
-    # print(request.method)
-    # redirect(location=back)
     return redirect(location=back)
 
 
@@ -55,8 +72,6 @@ def q_forward_page():
     adr_req = [i for i in request.referrer.split("/")][-4:]
     adr_req[-1] = str(int(adr_req[-1]) + 1)
     forward = "/" + "/".join(adr_req)
-    # print(forward)
-    # print(request.method)
     return redirect(location=forward)
 
 

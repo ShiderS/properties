@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="font/montsserat" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/addreview.css') }}">
+    <title>Добавить отзыв</title>
+</head>
+<body>
+    {% include "header.html" %}
+    <form action="" method="post" class="new-review">
+        <div class="input">
+            {{ form.comment(class="form-control", type="string") }}
+        </div>
+        <a class="">{{ form.submit(type="submit", class="button-create") }}</a>
+    </form>
+    {% include "footer.html" %}
+</body>
+</html>

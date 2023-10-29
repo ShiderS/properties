@@ -1,0 +1,15 @@
+<header>
+    <a href="/"><img src="img/logo.svg" alt="logo" class="logo"></a>
+    <a href="#" class="title"><h1>Наша компания</h1></a>
+    <a href="#" class="title"><h1>Моё обучение</h1></a>
+    <a href="#" class="title"><h1>Мои тесты</h1></a>
+    <a href="#" class="title"><h1>Мои результаты</h1></a>
+    <a href="#" class="title"><h1>Мои обращения</h1></a>
+    {% if current_user.is_authenticated %}
+        <a class="" href="/logout">{{ current_user.login }}</a>
+        {% else %}
+        <p>
+            <a class="btn btn-success" href="/login">Войти</a>
+        </p>
+    {% endif %}
+</header>

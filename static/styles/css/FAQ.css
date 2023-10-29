@@ -1,21 +1,21 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .user-name {
-    font-family: "Montserrat", sans-serif;
-    margin-bottom: 15px;
-    font-size: 28px;
-    color: #094298;
-    text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 15px;
+  font-size: 28px;
+  color: #094298;
+  text-decoration: none;
 }
 .exit-logo {
   width:15%;
@@ -30,13 +30,6 @@ header {
     gap: 13px;
 }
 
-
-.user-name {
-    font-family: "Montserrat", sans-serif;
-    margin-bottom: 15px;
-    font-size: 28px;
-}
-
 .btn-login {
     font-family: "Montserrat", sans-serif;
     margin-bottom: 13px;
@@ -47,9 +40,9 @@ header {
 }
 
 .logo {
-  width: 80%;
+  width:80%;
 }
-  
+
 .title {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
@@ -57,12 +50,12 @@ header {
   margin-bottom: 15px;
   text-decoration: none;
 }
-  
+
 .title:hover {
-  border-bottom: 2px solid #094298;
-  transition: 0.3s;
+  border-bottom: 5px solid #094298;
+  transition: 0.2s;
 }
-  
+
 .button {
   font-family: "Montserrat", sans-serif;
   display: flex;
@@ -86,6 +79,37 @@ header {
   transition: 0.2s;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.teaching {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+h1 {
+  font-size: 32px;
+  color: #094298;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 26px;
+  color: #094298;
+  font-weight: bold;
+}
+
+a {
+  font-size: 20px;
+  color: #094298;
+}
 
 footer {
   position: fixed;
@@ -101,11 +125,6 @@ footer {
   display: flex;
 }
 
-.footer-logo {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-}
 
 .footer-links {
   display: flex;
@@ -113,37 +132,16 @@ footer {
   justify-content: center;
   align-items: center;
 }
-  
+
 .footer-link {
   font-family: "Montserrat", sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
   margin: 0 150px;
 }
-  
+
 .footer-link:hover {
   color: #f7f7f7;
-}
-
-.email {
-  text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  font-size: 40px;
-  font-weight: 700;
-  color: #094298;
-  max-width: 1000px;
-}
-
-.link {
-  text-decoration-style: none;
-}
-
-.main {
-  padding-top: 100px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  width: 100%;
 }

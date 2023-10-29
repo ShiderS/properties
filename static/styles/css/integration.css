@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -5,35 +10,75 @@ header {
     padding: 10px;
 }
 
+.user-name {
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 15px;
+    font-size: 28px;
+    color: #094298;
+    text-decoration: none;
+}
+.exit-logo {
+  width:15%;
+  margin-right: 28px;
+  margin-top: 4px;
+}
+
+.user {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    gap: 13px;
+}
+
+.btn-login {
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 13px;
+    margin-right: 25px;
+    font-size: 28px;
+    color: #094298;
+    text-decoration: none;
+}
+
 .logo {
-    width: 104px;
-    margin-left:36px;
-    margin-top:17px;
+    width:80%;
 }
 
 .title {
     font-family: "Montserrat", sans-serif;
-    font-size: 25px;
+    font-size: 14px;
     color: #094298;
-    margin: 0 -1    00px;
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+
+.title:hover {
+    border-bottom: 5px solid #094298;
+    transition: 0.2s;
 }
 
 .button {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
   background: #fff;
   color: #094298;
-  border: 2px solid #094298;
+  border: 3px solid #094298;
   border-radius: 10px;
   width: 200px;
   height: 50px;
   font-size: 20px;
   font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 10px;
 }
 
-button:hover {
+.button:hover {
   background: #094298;
   color: #fff;
-  transition: 0.3s;
+  transition: 0.2s;
 }
+
 
 ::-webkit-scrollbar {
 width: 0;
@@ -71,7 +116,8 @@ footer {
   font-size: 22px;
   color: #ffffff;
   text-decoration: none;
-  margin: 20px 80px;
+  transition: color 0.3s ease;
+  margin: 0 150px;
 }
 
 .footer-link:hover {
@@ -79,18 +125,20 @@ footer {
 }
 
 h2 {
-font-family: "Montserrat", sans-serif;
-font-size: 22px;
-color:#094298;
-font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    font-size: 35px;
+    color: #094298;
+    font-weight: bold;
+    margin-top: 25px;
 }
 
 a {
-font-size: 18px;
-color:#094298;
-font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    color:#094298;
+    font-family: "Montserrat", sans-serif;
 }
 
 .text {
-padding:35px;
+    padding:35px;
+    margin-left: 25px;
 }

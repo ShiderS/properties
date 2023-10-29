@@ -110,7 +110,7 @@ form {
 
 .input {
 	position: relative;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -121,7 +121,7 @@ form {
 	font-size: 17px;
 	background: #e6e6e6;
 	border-radius: 8px;
-	padding: 14px 18px 14px 51px;
+	padding: 12px 20px;
 	color: #403866;
 }
 
