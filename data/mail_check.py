@@ -5,7 +5,7 @@ from email.mime.multipart import MIMEMultipart
 import random
 from flask import render_template, Flask, request
 
-mail_codes = {}
+
 def send_mail(sender_email, sender_password, recipient_email, subject='Подтверждение почты'):
     # Создание сообщения
     msg = MIMEMultipart()
@@ -13,7 +13,6 @@ def send_mail(sender_email, sender_password, recipient_email, subject='Подт�
     msg['To'] = recipient_email
     msg['Subject'] = subject
     verif_code = random.randint(100_000, 999_999)
-    mail_codes[recipient_email] = verif_code
 
     # Добавление текста сообщения
     mail_text = f'Ваш код подтверждения почты:\n{verif_code}'
@@ -27,6 +26,6 @@ def send_mail(sender_email, sender_password, recipient_email, subject='Подт�
         server.login(sender_email, sender_password)
         # Отправка сообщения
         server.send_message(msg)
-        return True
+        return str(verif_code)
     except Exception as e:
         return str(e)

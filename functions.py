@@ -3,7 +3,7 @@ from fernet import Fernet
 from flask_login import current_user, login_required, logout_user, login_user
 from flask import render_template, redirect, request, url_for
 from data import db_session
-from data.mail_check import send_mail, mail_codes
+from data.mail_check import send_mail
 from forms.new_test_form import NewTestForm
 from forms.verifform import VerifForm
 
@@ -32,11 +32,12 @@ def register():
             return render_template('signup.html', title='Регистрация',
                                    form=form,
                                    message="Такой пользователь уже есть")
-        full_name = form.second_name.data + form.name.data + form.patronymic.data
-        user_data = f'{form.login.data}+{form.mail.data}+{full_name}+{form.password.data}'
-        encMessage = fernet.encrypt(user_data.encode())
-        send_mail("proftestium56@gmail.com", "lhnu gcsw jpyr tmhc", form.mail.data)
-        return redirect(url_for("mail_verification", data=encMessage))
+        mail_code = send_mail("proftestium56@gmail.com", "lhnu gcsw jpyr tmhc", form.mail.data)
+        if len(mail_code) == 6:
+            full_name = form.second_name.data + form.name.data + form.patronymic.data
+            user_data = f'{form.login.data}+{form.mail.data}+{full_name}+{form.password.data}+{mail_code}'
+            encMessage = fernet.encrypt(user_data.encode())
+            return redirect(url_for("mail_verification", data=encMessage))
         #return redirect('/mail_verification')
     return render_template('signup.html', message="Неправильный логин или пароль", form=form)
 
@@ -47,7 +48,7 @@ def mail_verification(data):
     if form.validate_on_submit():
         data = fernet.decrypt(data.encode()).decode()
         data = data.split('+')
-        if form.code.data == str(mail_codes[data[1]]):
+        if form.code.data == data[4]:
             db_sess = db_session.create_session()
             user = User(
                 login=data[0],
@@ -71,7 +72,6 @@ def mail_verification(data):
 def login():
     form = LoginForm(meta={'csrf':False})
     if form.validate_on_submit():
-        print(1)
         db_sess = db_session.create_session()
         user = db_sess.query(User).filter(User.mail == form.mail.data).first()
         if user and user.check_password(form.password.data):
@@ -80,7 +80,6 @@ def login():
         return render_template('index.html',
                                message="Неправильный логин или пароль",
                                form=form)
-    print(2)
     return render_template('login.html', form=form)
 
 
