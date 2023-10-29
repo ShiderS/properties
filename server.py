@@ -1,14 +1,9 @@
-from flask import Flask, request, render_template, make_response, session, redirect, url_for
-from data.portal import Portal
-from data.question import Question
-from data.user import User
+import flask_login
 
-from forms.loginform import LoginForm
-from forms.testform import TestForm
-from forms.user import RegisterForm
 
 from init import *
 from functions import *
+from forms.testform import *
 
 
 @app.route("/")
@@ -28,7 +23,10 @@ def implementation():
 
 @app.route('/reviews')
 def reviews():
-    return render_template('reviews.html', title='Отзывы')
+    db_sess = db_session.create_session()
+    reviews = db_sess.query(Review).all()
+    form = FormAddReview()
+    return render_template('reviews.html', title='Отзывы', reviews=reviews, form=form)
 
 @app.route('/support')
 def support():

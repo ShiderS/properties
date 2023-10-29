@@ -9,13 +9,24 @@
 </head>
 <body>
     {% include "header.html" %}
-    <button class="button-create">Оставить отзыв</button>
-    <div class="text">
-        <h2 class="review-title">Пупкин В.Е</h2>
-        <a class="review-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent interdum feugiat dui eget consectetur. In eget egestas risus. Integer consectetur, ante sed blandit ultricies, est mi blandit sapien, ut hendrerit metus lacus non diam. Nunc libero ligula, eleifend at dictum eget, blandit ut ex. Aenean consectetur neque dolor, vel tempus nibh suscipit et.</a>
-        <h2 class="review-title">Серов С.Д</h2>
-        <a class="review-text">Mauris rutrum dignissim ante, sed ultricies justo ultricies non. Nullam congue in metus at ultrices. Vivamus vestibulum, odio vel tincidunt vehicula, urna erat interdum nunc, ac vulputate justo orci eu lectus.</a>
+    <a href="/add_review"><button class="button-create">Оставить отзыв</button></a>
+    {% if reviews %}
+    {% for i in reviews %}
+    <div class="col-md6 border rounded aaa">
+        <h2 class="review-title">{{i[1].name}}</h2>
+        <div>
+            <a class="review-text">{{i[0]}}</a>
+        </div>
     </div>
+    {% endfor %}
+    {% endif %}
+        <footer>
+        <a href="#"><img src="img/logo_2.svg" alt="Логотип" class="logo"></a>
+        <div class="footer-links">
+            <a href="#" class="footer-link">Политика конфиденциальности</a>
+            <a href="#" class="footer-link">Обратный звонок</a>
+            <a href="#" class="footer-link">Помощь</a>
+        </div>
     {% include "footer.html" %}
 </body>
 </html>
