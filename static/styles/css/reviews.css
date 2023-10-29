@@ -136,6 +136,7 @@ header {
 }
 
 footer {
+  position: fixed;
   margin-top: 25px;
   bottom: 0;
   left: 0;
