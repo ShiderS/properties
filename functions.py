@@ -51,6 +51,7 @@ def login():
         return render_template('index.html',
                                message="Неправильный логин или пароль",
                                form=form)
+    print(2)
     return render_template('login.html', form=form)
 
 

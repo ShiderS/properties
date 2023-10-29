@@ -12,12 +12,10 @@
 
 		<div class="card">
 			<div class="head">
-				<div></div>
 				<a id="login" class="selected" href="#">Вход</a>
-				<div></div>
 			</div>
 			<div class="tabs">
-				<form>
+				<form action="" method="post">
 					<div class="inputs">
 						<div class="input">
 							{{ form.mail.label }}<br>
@@ -34,7 +32,8 @@
 							{{ message }}
 					</div>
 
-					<button class="btn">{{ form.submit(type="submit", class="btn btn-primary") }}</button>
+					<!-- <button class="btn">{{ form.submit(type="submit", class="btn btn-primary") }}</button> -->
+					<p class="btn">{{ form.submit(type="submit", class="btn btn-primary") }}</p>
 					<a href="register"><div class="create_account">Создать новый аккаунт</div></a>
 				</form>
 			</div>
