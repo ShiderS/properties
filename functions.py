@@ -77,7 +77,8 @@ def logout():
 def new_test():
     form = NewTestForm()
     db_sess = db_session.create_session()
-    return render_template('new_test.html', form=form)
+
+    return render_template('create_tests.html', form=form)
 
 
 @app.route('/add_review', methods=['GET', 'POST'])
