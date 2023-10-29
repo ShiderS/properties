@@ -91,8 +91,17 @@
     font-size: 30px;
     font-weight: 700;
     color: #094298;
+    max-width: 900px;
 }
 
 .link {
     text-decoration-style: none;
+}
+
+.main {
+  padding-top: 100px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 100%;
 }
