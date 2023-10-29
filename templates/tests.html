@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/css/tests.css') }}">
+    <title>Тестирование</title>
+</head>
+<body>
+    <header class="header">
+        <img src="/./././static/imgs/logo.svg" alt="logo" class="logo">
+        <div class="login">
+            <div class="user_name">Усенков С.Д.</div>
+            <img src="/./././static/imgs/user_icon.svg" alt="user_icon" class="user_icon">
+        </div>
+    </header>
+    <main class="main">
+        <h1 class="title">{{ qtitle }}</h1>
+        <h2 class="subtitle">{{ quest }}/{{ 10 }} вопрос</h2>
+        <div class="question">{{ qtext }}</div>
+        <input placeholder="Ответ" type="text" class="input"></input>
+        <div class="buttons">
+            <form action="/back" method="post">
+                <button name="button" type="submit" class="button">Назад</button>
+            </form>
+            <form action="/forward" method="post">
+                <button name="button" type="submit" class="button">Дальше</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

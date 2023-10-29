@@ -20,29 +20,36 @@
 				<form>
 					<div class="inputs">
 						<div class="input">
-							<input placeholder="Ваше имя" type="text">
+							{{ form.second_name.label }}<br>
+            				{{ form.second_name(class="form-control", type="string") }}<br>
 						</div>
 						<div class="input">
-							<input placeholder="Ваша фамилия" type="text">
+							{{ form.name.label }}<br>
+            				{{ form.name(class="form-control", type="string") }}<br>
 						</div>
 						<div class="input">
-							<input placeholder="Ваше отчество" type="text">
+							{{ form.patronymic.label }}<br>
+            				{{ form.patronymic(class="form-control", type="string") }}<br>
 						</div>
 						<div class="input">
-							<input placeholder="Логин" type="text">
+							{{ form.login.label }}<br>
+            				{{ form.login(class="form-control", type="string") }}<br>
 						</div>
 						<div class="input">
-							<input placeholder="Пароль" type="text">
+							{{ form.password.label }}<br>
+            				{{ form.password(class="form-control", type="password") }}<br>
 						</div>
 						<div class="input">
-							<input placeholder="Повторите пароль" type="password">
+							{{ form.password_again.label }}<br>
+            				{{ form.password_again(class="form-control", type="password") }}<br>
 						</div>
 						<div class="input">
-							<input placeholder="Email" type="text">
+							{{ form.mail.label }}<br>
+            				{{ form.mail(class="form-control", type="mail") }}<br>
 						</div>
 					</div>
-					<button class="btn"><span>Зарегистрироваться</span></button>
-					<a href="login.html"><div class="create_account">Уже есть аккаунт?</div></a>
+					<div class="btn">{{ form.submit(type="submit", class="btn btn-primary") }}</div>
+					<a href="login"><div class="create_account">Уже есть аккаунт?</div></a>
 				</form>
 			</div>
 		</div>

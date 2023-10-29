@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <title>Title</title>
+</head>
+<body>
+    <div class="input">
+        {{ form.title.label }}
+        <br>
+            {{ form.title(class="form-control", type="string") }}
+        <br>
+    </div>
+
+    <div class="input">
+        {{ form.txt_question.label }}
+        <br>
+            {{ form.txt_question(class="form-control", type="string") }}
+        <br>
+    </div>
+
+    <div class="input">
+        {{ form.txt_answer.label }}
+        <br>
+            {{ form.txt_answer(class="form-control", type="string") }}
+        <br>
+    </div>
+</body>
+</html>

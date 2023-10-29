@@ -2,6 +2,7 @@ import sqlalchemy
 from flask_login import current_user, login_required, logout_user, login_user
 from flask import render_template, redirect, request
 from data import db_session
+from forms.new_test_form import NewTestForm
 
 from init import *
 from forms.user import *
@@ -26,7 +27,7 @@ def register():
                                    message="Такой пользователь уже есть")
         user = User(
             login=form.login.data,
-            mail=form.email.data,
+            mail=form.mail.data,
             full_name=form.second_name.data + form.name.data + form.patronymic.data
         )
         user.set_password(form.password.data)
@@ -62,6 +63,14 @@ def load_user(user_id):
 def logout():
     logout_user()
     return redirect("/")
+
+
+@app.route('/new_test', methods=['GET', 'POST'])
+def new_test():
+    form = NewTestForm()
+    db_sess = db_session.create_session()
+    return render_template('new_test.html', form=form)
+
 
 
 @app.route('/add_review', methods=['GET', 'POST'])
